@@ -16,19 +16,75 @@ function safeInt(val: string | undefined, fallback: number): number {
   return Number.isFinite(parsed) ? parsed : fallback;
 }
 
+// HARDCODED DEFAULTS (lowest priority)
+const RISK_DEFAULTS: RiskLimits = {
+  maxPositionSize: 5,        // 5% per position
+  maxDrawdown: 15,           // 15% max drawdown
+  maxDailyLoss: 3,           // 3% max daily loss
+  maxOpenPositions: 5,
+  maxLeverage: 1,            // no leverage by default
+  stopLossPercent: 2,
+  takeProfitPercent: 4,
+  maxCorrelation: 0.7,
+  cooldownAfterLoss: 300,    // 5 minutes
+};
+
+// ENV VAR MAPPING: env var name -> RiskLimits key
+const ENV_OVERRIDES: Record<string, keyof RiskLimits> = {
+  MAX_POSITION_SIZE: "maxPositionSize",
+  MAX_DRAWDOWN: "maxDrawdown",
+  MAX_DAILY_LOSS: "maxDailyLoss",
+  MAX_OPEN_POSITIONS: "maxOpenPositions",
+  MAX_LEVERAGE: "maxLeverage",
+  STOP_LOSS_PERCENT: "stopLossPercent",
+  TAKE_PROFIT_PERCENT: "takeProfitPercent",
+  MAX_CORRELATION: "maxCorrelation",
+  COOLDOWN_AFTER_LOSS: "cooldownAfterLoss",
+};
+
+// Single source of truth for risk limits.
+// Hierarchy: env vars override defaults. All consumers MUST use this function.
+let _logged = false;
 export function getRiskLimits(): RiskLimits {
-  return {
-    maxPositionSize: safeFloat(process.env.MAX_POSITION_SIZE, 5),      // 5% per position
-    maxDrawdown: safeFloat(process.env.MAX_DRAWDOWN, 15),              // 15% max drawdown
-    maxDailyLoss: safeFloat(process.env.MAX_DAILY_LOSS, 3),            // 3% max daily loss
-    maxOpenPositions: safeInt(process.env.MAX_OPEN_POSITIONS, 5),
-    maxLeverage: safeFloat(process.env.MAX_LEVERAGE, 1),               // no leverage by default
-    stopLossPercent: safeFloat(process.env.STOP_LOSS_PERCENT, 2),
-    takeProfitPercent: safeFloat(process.env.TAKE_PROFIT_PERCENT, 4),
-    maxCorrelation: safeFloat(process.env.MAX_CORRELATION, 0.7),
-    cooldownAfterLoss: safeFloat(process.env.COOLDOWN_AFTER_LOSS, 300), // 5 minutes
-  };
+  const limits: RiskLimits = { ...RISK_DEFAULTS };
+  const overrides: string[] = [];
+
+  for (const [envKey, limitKey] of Object.entries(ENV_OVERRIDES)) {
+    const val = process.env[envKey];
+    if (val !== undefined && val !== "") {
+      const isInt = limitKey === "maxOpenPositions";
+      const parsed = isInt ? parseInt(val, 10) : parseFloat(val);
+      if (!Number.isFinite(parsed)) {
+        throw new Error(
+          `FATAL: Risk config env var "${envKey}" has invalid value "${val}" (parsed as NaN). ` +
+          `Fix the value or remove it to use the default (${RISK_DEFAULTS[limitKey]}).`
+        );
+      }
+      (limits as unknown as Record<string, number>)[limitKey] = parsed;
+      overrides.push(`${limitKey}=${parsed} (from ${envKey})`);
+    }
+  }
+
+  // Log active limits once at startup for auditability
+  if (!_logged) {
+    _logged = true;
+    console.log("[risk-limits] Active risk limits (single source of truth):");
+    for (const [key, value] of Object.entries(limits)) {
+      const source = overrides.find((o) => o.startsWith(key)) ? "ENV" : "DEFAULT";
+      console.log(`  ${key}: ${value} [${source}]`);
+    }
+    if (overrides.length > 0) {
+      console.log(`[risk-limits] ${overrides.length} env var override(s) applied`);
+    }
+  }
+
+  return limits;
 }
+
+// Validate risk config eagerly on module load.
+// If any risk-critical env var is set to a non-numeric value, the process
+// crashes immediately rather than silently disabling risk checks at runtime.
+getRiskLimits();
 
 export const INITIAL_BALANCE = safeFloat(process.env.INITIAL_BALANCE, 10_000);
 
@@ -82,14 +138,23 @@ export const DEFAULT_STRATEGIES: StrategyConfig[] = [
 
 // Strategy weights for ensemble (must match strategy types above)
 export const ENSEMBLE_WEIGHTS: Record<string, number> = {
-  evolved_trend: 0.25,
-  funding_rate_arb: 0.15,
-  trend_following: 0.15,
-  mean_reversion: 0.12,
-  momentum: 0.10,
-  breakout: 0.08,
-  ichimoku_cloud: 0.08,
+  evolved_trend: 0.22,
+  smart_money: 0.12,
+  funding_rate_arb: 0.13,
+  trend_following: 0.13,
+  mean_reversion: 0.10,
+  momentum: 0.09,
+  breakout: 0.07,
+  ichimoku_cloud: 0.07,
   supertrend: 0.07,
+};
+
+// Regime detection thresholds (Tier 1 - technical only)
+export const REGIME_THRESHOLDS = {
+  adxTrend: 25,           // ADX above this = trending
+  adxRange: 20,           // ADX below this = ranging
+  bbBandwidthRange: 4,    // BB bandwidth below this % = ranging
+  atrHighVolMultiplier: 2, // ATR > 2x median = high volatility
 };
 
 // Auth

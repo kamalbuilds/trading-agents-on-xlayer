@@ -61,6 +61,7 @@ export interface Order {
   fee: number;
   timestamp: number;
   strategy?: string;
+  simulated?: boolean;
 }
 
 export interface Position {
@@ -139,7 +140,8 @@ export type StrategyType =
   | "statistical_arb"
   | "breakout"
   | "sentiment"
-  | "evolved_trend";
+  | "evolved_trend"
+  | "smart_money";
 
 export interface StrategyConfig {
   name: string;
@@ -184,7 +186,8 @@ export type EventType =
   | "circuit_breaker"
   | "strategy_update"
   | "agent_message"
-  | "system_error";
+  | "system_error"
+  | "mode_switch";
 
 export interface TradingEvent {
   type: EventType;
