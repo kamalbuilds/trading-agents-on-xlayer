@@ -3,11 +3,15 @@
 // Allocation: 30% funding arb, 25% trend, 20% mean reversion, 15% momentum, 10% breakout
 
 import type { OHLC, TradeSignal, StrategyResult, StrategyType } from "@/lib/types";
+import { ENSEMBLE_WEIGHTS } from "@/lib/config";
 import { analyzeTrendFollowing } from "./trend-following";
 import { analyzeMeanReversion } from "./mean-reversion";
 import { analyzeMomentum } from "./momentum";
 import { analyzeFundingRate, type FundingRateData } from "./funding-rate";
 import { analyzeBreakout } from "./breakout";
+import { analyzeIchimokuCloud } from "./ichimoku-cloud";
+import { analyzeSuperTrend } from "./supertrend";
+import { analyzeEvolvedTrend } from "./evolved-trend";
 
 export interface EnsembleConfig {
   weights: Record<string, number>;
@@ -18,13 +22,7 @@ export interface EnsembleConfig {
 }
 
 const DEFAULT_CONFIG: EnsembleConfig = {
-  weights: {
-    funding_rate_arb: 0.30,
-    trend_following: 0.25,
-    mean_reversion: 0.20,
-    momentum: 0.15,
-    breakout: 0.10,
-  },
+  weights: ENSEMBLE_WEIGHTS,
   minConfidence: 0.55,
   maxSignals: 3,
   correlationPenalty: 0.15,
@@ -58,6 +56,11 @@ export function analyzeEnsemble(
   strategyResults.mean_reversion = analyzeMeanReversion(candles, { pair: cfg.pair });
   strategyResults.momentum = analyzeMomentum(candles, { pair: cfg.pair });
   strategyResults.breakout = analyzeBreakout(candles, { pair: cfg.pair });
+  strategyResults.ichimoku_cloud = analyzeIchimokuCloud(candles, { pair: cfg.pair });
+  strategyResults.supertrend = analyzeSuperTrend(candles, { pair: cfg.pair });
+
+  // Evolved trend strategy (genetically optimized, highest backtest performance)
+  strategyResults.evolved_trend = analyzeEvolvedTrend(candles, { pair: cfg.pair });
 
   if (fundingData && historicalFundingRates) {
     strategyResults.funding_rate_arb = analyzeFundingRate(
@@ -84,12 +87,13 @@ export function analyzeEnsemble(
     }
   }
 
-  // Calculate consensus
+  // Calculate consensus using weight * confidence for proper influence
   let bullishScore = 0;
   let bearishScore = 0;
   for (const sig of weightedSignals) {
-    if (sig.side === "buy") bullishScore += sig.confidence;
-    else bearishScore += sig.confidence;
+    const weightedConfidence = sig.confidence * sig.weight;
+    if (sig.side === "buy") bullishScore += weightedConfidence;
+    else bearishScore += weightedConfidence;
   }
 
   // Also factor in strategies with no signal (implicit neutral)
@@ -122,7 +126,11 @@ export function analyzeEnsemble(
   // (e.g., trend + momentum both bullish are somewhat correlated)
   const correlatedPairs: [string, string][] = [
     ["trend_following", "momentum"],
+    ["trend_following", "supertrend"],
+    ["supertrend", "ichimoku_cloud"],
     ["mean_reversion", "breakout"],
+    ["evolved_trend", "trend_following"],
+    ["evolved_trend", "momentum"],
   ];
 
   for (const [a, b] of correlatedPairs) {

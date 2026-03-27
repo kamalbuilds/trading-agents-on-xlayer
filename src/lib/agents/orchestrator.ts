@@ -1,11 +1,17 @@
 import { streamText, convertToModelMessages, UIMessage, stepCountIs, tool } from "ai";
-import { anthropic } from "@ai-sdk/anthropic";
 import { z } from "zod";
 import { ORCHESTRATOR_PROMPT } from "./prompts";
 import { runMarketAnalyst, type MarketAnalysis } from "./market-analyst";
 import { runStrategist, type StrategyProposal } from "./strategist";
 import { runRiskManager, DEFAULT_RISK_LIMITS } from "./risk-manager";
 import { runExecutor, type ExecutionResult } from "./executor";
+import { formatMemoriesForPrompt } from "./reflection";
+import {
+  getRiskLimits,
+  INITIAL_BALANCE,
+  DEFAULT_STRATEGIES as CONFIG_STRATEGIES,
+} from "@/lib/config";
+import { standardToKraken } from "@/lib/utils/pairs";
 import type {
   AgentMessage,
   AgentDecision,
@@ -24,8 +30,8 @@ export interface OrchestratorConfig {
 }
 
 const DEFAULT_PORTFOLIO: PortfolioState = {
-  balance: 10000,
-  equity: 10000,
+  balance: INITIAL_BALANCE,
+  equity: INITIAL_BALANCE,
   positions: [],
   openOrders: [],
   totalPnl: 0,
@@ -36,53 +42,11 @@ const DEFAULT_PORTFOLIO: PortfolioState = {
   timestamp: Date.now(),
 };
 
-const DEFAULT_STRATEGIES: StrategyConfig[] = [
-  {
-    name: "Trend Following",
-    type: "trend_following",
-    pairs: ["XBTUSD"],
-    timeframe: "1h",
-    allocation: 25,
-    enabled: true,
-    params: { lookback: 20, threshold: 0.02 },
-  },
-  {
-    name: "Mean Reversion",
-    type: "mean_reversion",
-    pairs: ["XBTUSD", "ETHUSD"],
-    timeframe: "15m",
-    allocation: 20,
-    enabled: true,
-    params: { zScoreThreshold: 2, lookback: 50 },
-  },
-  {
-    name: "Momentum",
-    type: "momentum",
-    pairs: ["XBTUSD"],
-    timeframe: "4h",
-    allocation: 15,
-    enabled: true,
-    params: { period: 14, overbought: 70, oversold: 30 },
-  },
-  {
-    name: "Breakout",
-    type: "breakout",
-    pairs: ["XBTUSD", "ETHUSD"],
-    timeframe: "1h",
-    allocation: 10,
-    enabled: true,
-    params: { lookback: 20, breakoutThreshold: 0.015 },
-  },
-  {
-    name: "Funding Rate Arbitrage",
-    type: "funding_rate_arb",
-    pairs: ["XBTUSD"],
-    timeframe: "8h",
-    allocation: 30,
-    enabled: true,
-    params: { minFundingRate: 0.0001, lookback: 7 },
-  },
-];
+// Use Kraken pair format for orchestrator (it talks to Kraken MCP)
+const DEFAULT_STRATEGIES: StrategyConfig[] = CONFIG_STRATEGIES.map((s) => ({
+  ...s,
+  pairs: s.pairs.map(standardToKraken),
+}));
 
 export function getDefaultConfig(): OrchestratorConfig {
   return {
@@ -112,8 +76,8 @@ export async function runOrchestrator(messages: UIMessage[], config?: Partial<Or
   }
 
   const result = streamText({
-    model: anthropic("claude-sonnet-4-20250514"),
-    system: ORCHESTRATOR_PROMPT + `\n\nSystem mode: ${cfg.mode.toUpperCase()} TRADING\nPortfolio equity: $${cfg.portfolio?.equity ?? 10000}\nActive strategies: ${cfg.activeStrategies.map(s => s.name).join(", ")}`,
+    model: "anthropic/claude-sonnet-4.6",
+    system: ORCHESTRATOR_PROMPT + `\n\nSystem mode: ${cfg.mode.toUpperCase()} TRADING\nPortfolio equity: $${cfg.portfolio?.equity ?? INITIAL_BALANCE}\nActive strategies: ${cfg.activeStrategies.map(s => s.name).join(", ")}` + formatMemoriesForPrompt("strategist", `${cfg.activeStrategies.map(s => s.name).join(", ")} trading on ${cfg.mode} mode`),
     messages: await convertToModelMessages(messages),
     tools: {
       analyzeMarket: tool({

@@ -138,7 +138,8 @@ export type StrategyType =
   | "funding_rate_arb"
   | "statistical_arb"
   | "breakout"
-  | "sentiment";
+  | "sentiment"
+  | "evolved_trend";
 
 export interface StrategyConfig {
   name: string;
@@ -161,7 +162,7 @@ export interface StrategyResult {
 // --- System State ---
 export interface SystemState {
   isRunning: boolean;
-  mode: "paper" | "live";
+  mode: "paper" | "live" | "xlayer";
   portfolio: PortfolioState;
   activeStrategies: StrategyConfig[];
   riskLimits: RiskLimits;

@@ -86,7 +86,7 @@ export function PortfolioCard() {
           />
           <StatItem
             label="Max Drawdown"
-            value={`${(portfolio.maxDrawdown * 100).toFixed(1)}%`}
+            value={`${portfolio.maxDrawdown.toFixed(1)}%`}
             icon={TrendingDown}
             trend="down"
           />

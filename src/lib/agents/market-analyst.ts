@@ -1,5 +1,4 @@
 import { generateText, tool, stepCountIs } from "ai";
-import { anthropic } from "@ai-sdk/anthropic";
 import { z } from "zod";
 import { MARKET_ANALYST_PROMPT } from "./prompts";
 import type { MarketTicker, OHLC, OrderBook } from "@/lib/types";
@@ -56,7 +55,7 @@ async function fetchOrderBook(pair: string): Promise<OrderBook | null> {
 
 export async function runMarketAnalyst(pair: string): Promise<MarketAnalysis> {
   const { text } = await generateText({
-    model: anthropic("claude-sonnet-4-20250514"),
+    model: "anthropic/claude-sonnet-4.6",
     system: MARKET_ANALYST_PROMPT,
     tools: {
       getTicker: tool({

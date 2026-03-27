@@ -6,10 +6,11 @@
 
 import { paperBuy, paperSell } from "@/lib/kraken/paper-trading";
 import { ensureConnected } from "@/lib/kraken/mcp-client";
+import { executeXLayerSignal } from "@/lib/xlayer";
 import { tradingEvents } from "./events";
 import type { TradeSignal, Order, OrderSide } from "@/lib/types";
 
-export type ExecutionMode = "paper" | "live";
+export type ExecutionMode = "paper" | "live" | "xlayer";
 
 interface ExecutorConfig {
   mode: ExecutionMode;
@@ -54,10 +55,14 @@ export async function executeSignal(signal: TradeSignal): Promise<Order | null> 
   }
 
   try {
-    const order =
-      config.mode === "paper"
-        ? await executePaper(signal)
-        : await executeLive(signal);
+    let order: Order;
+    if (config.mode === "xlayer") {
+      order = await executeXLayerSignal(signal);
+    } else if (config.mode === "paper") {
+      order = await executePaper(signal);
+    } else {
+      order = await executeLive(signal);
+    }
 
     tradingEvents.emitOrderPlaced(order, "executor");
 
@@ -84,7 +89,7 @@ export async function executeBatch(signals: TradeSignal[]): Promise<(Order | nul
 }
 
 export async function cancelOrder(orderId: string): Promise<boolean> {
-  if (config.mode === "paper") {
+  if (config.mode === "paper" || config.mode === "xlayer") {
     // Paper trading doesn't have persistent open orders to cancel
     return true;
   }
@@ -101,7 +106,7 @@ export async function cancelOrder(orderId: string): Promise<boolean> {
 }
 
 export async function cancelAllOrders(): Promise<boolean> {
-  if (config.mode === "paper") return true;
+  if (config.mode === "paper" || config.mode === "xlayer") return true;
 
   try {
     const client = await ensureConnected();

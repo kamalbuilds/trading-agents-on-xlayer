@@ -64,27 +64,38 @@ export class KrakenMcpClient extends EventEmitter {
       args.push("--allow-dangerous");
     }
 
-    this.process = spawn(this.krakenPath, args, {
-      stdio: ["pipe", "pipe", "pipe"],
-      env: { ...process.env },
-    });
+    // Only pass safe env vars to the subprocess (not secrets like API keys)
+    const safeEnv: NodeJS.ProcessEnv = {
+      PATH: process.env.PATH,
+      HOME: process.env.HOME,
+      NODE_ENV: process.env.NODE_ENV,
+      TERM: process.env.TERM ?? "xterm-256color",
+      KRAKEN_API_KEY: process.env.KRAKEN_API_KEY,
+      KRAKEN_API_SECRET: process.env.KRAKEN_API_SECRET,
+    };
 
-    this.process.stdout!.on("data", (chunk: Buffer) => {
+    const proc = spawn(this.krakenPath, args, {
+      stdio: ["pipe", "pipe", "pipe"],
+      env: safeEnv,
+    });
+    this.process = proc;
+
+    proc.stdout!.on("data", (chunk: Buffer) => {
       this.handleData(chunk.toString());
     });
 
-    this.process.stderr!.on("data", (chunk: Buffer) => {
+    proc.stderr!.on("data", (chunk: Buffer) => {
       this.emit("log", chunk.toString());
     });
 
-    this.process.on("close", (code) => {
+    proc.on("close", (code) => {
       this.initialized = false;
       this.rejectAllPending(new Error(`Kraken MCP process exited with code ${code}`));
       this.process = null;
       this.emit("close", code);
     });
 
-    this.process.on("error", (err) => {
+    proc.on("error", (err) => {
       this.emit("error", err);
     });
 

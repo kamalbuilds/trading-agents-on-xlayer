@@ -1,4 +1,5 @@
 import { UIMessage } from "ai";
+import { timingSafeEqual } from "crypto";
 import { runOrchestrator } from "@/lib/agents/orchestrator";
 
 export const maxDuration = 60;
@@ -13,7 +14,10 @@ function checkApiKey(req: Request): boolean {
   const match = authHeader.match(/^Bearer\s+(.+)$/);
   if (!match) return false;
 
-  return match[1] === apiSecret;
+  const provided = Buffer.from(match[1]);
+  const expected = Buffer.from(apiSecret);
+  if (provided.length !== expected.length) return false;
+  return timingSafeEqual(provided, expected);
 }
 
 export async function POST(req: Request) {

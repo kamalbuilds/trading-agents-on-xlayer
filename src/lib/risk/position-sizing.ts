@@ -87,7 +87,21 @@ export function calculatePositionSize(
 ): { size: number; stopLoss: number; takeProfit: number; method: string } {
   const equity = portfolio.equity;
   const maxPositionValue = equity * (limits.maxPositionSize / 100);
-  const currentPrice = signal.price ?? 0;
+
+  // For market orders, resolve price from metadata (strategies store it there) or last candle
+  let currentPrice = signal.price ?? 0;
+  if (currentPrice <= 0 && signal.metadata?.stopLoss) {
+    // Strategies store stopLoss/takeProfit in metadata even for market orders
+    // Infer price from the midpoint between stop and TP
+    const sl = signal.metadata.stopLoss as number;
+    const tp = signal.metadata.takeProfit as number;
+    if (sl > 0 && tp > 0) {
+      currentPrice = (sl + tp) / 2;
+    }
+  }
+  if (currentPrice <= 0 && candles && candles.length > 0) {
+    currentPrice = candles[candles.length - 1].close;
+  }
 
   if (currentPrice <= 0 || equity <= 0) {
     return { size: 0, stopLoss: 0, takeProfit: 0, method: "rejected_invalid_inputs" };

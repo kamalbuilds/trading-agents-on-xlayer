@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { timingSafeEqual } from "crypto";
 import { createRiskEngine, getDefaultRiskLimits } from "@/lib/risk";
 import type {
   TradeSignal,
@@ -27,7 +28,11 @@ function checkApiKey(request: NextRequest): boolean {
   const match = authHeader.match(/^Bearer\s+(.+)$/);
   if (!match) return false;
 
-  return match[1] === apiSecret;
+  // Timing-safe comparison to prevent timing attacks
+  const provided = Buffer.from(match[1]);
+  const expected = Buffer.from(apiSecret);
+  if (provided.length !== expected.length) return false;
+  return timingSafeEqual(provided, expected);
 }
 
 // POST /api/trade - Submit a trade signal for risk assessment and execution

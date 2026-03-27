@@ -5,6 +5,8 @@
 
 import { getTicker } from "@/lib/kraken/market-data";
 import { tradingEvents } from "./events";
+import { INITIAL_BALANCE } from "@/lib/config";
+import { pairsMatch } from "@/lib/utils/pairs";
 import type { Order, Position, PortfolioState } from "@/lib/types";
 
 interface PortfolioConfig {
@@ -13,7 +15,7 @@ interface PortfolioConfig {
 }
 
 const defaultPortfolioConfig: PortfolioConfig = {
-  initialBalance: 100_000,
+  initialBalance: INITIAL_BALANCE,
   baseCurrency: "USD",
 };
 
@@ -45,7 +47,7 @@ export function recordTrade(order: Order): void {
 
   if (order.side === "buy") {
     // Open or add to position
-    const existing = positions.find((p) => p.pair === order.pair && p.side === "buy");
+    const existing = positions.find((p) => pairsMatch(p.pair, order.pair) && p.side === "buy");
     if (existing) {
       // Average in
       const totalAmount = existing.amount + order.filled;
@@ -70,7 +72,7 @@ export function recordTrade(order: Order): void {
     currentBalance -= order.price * order.filled + order.fee;
   } else {
     // Close or reduce position
-    const existing = positions.find((p) => p.pair === order.pair && p.side === "buy");
+    const existing = positions.find((p) => pairsMatch(p.pair, order.pair) && p.side === "buy");
     if (existing) {
       const pnl = (order.price - existing.entryPrice) * order.filled - order.fee;
       existing.realizedPnl += pnl;
@@ -132,7 +134,7 @@ export async function getPortfolioState(): Promise<PortfolioState> {
     // Find all buy trades for this pair before this sell
     const buyTrades = completedTrades.filter(
       (t) =>
-        t.pair === sell.pair &&
+        pairsMatch(t.pair, sell.pair) &&
         t.side === "buy" &&
         t.timestamp < sell.timestamp
     );
@@ -190,7 +192,7 @@ function calculateSharpeRatio(): number {
     // Find the earliest unmatched buy for this pair
     const buyIdx = completedTrades.findIndex(
       (t, idx) =>
-        t.pair === sell.pair &&
+        pairsMatch(t.pair, sell.pair) &&
         t.side === "buy" &&
         t.timestamp < sell.timestamp &&
         !usedBuyIndices.has(idx)

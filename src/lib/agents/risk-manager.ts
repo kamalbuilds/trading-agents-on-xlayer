@@ -1,5 +1,4 @@
 import { generateText, tool, stepCountIs } from "ai";
-import { anthropic } from "@ai-sdk/anthropic";
 import { z } from "zod";
 import { RISK_MANAGER_PROMPT } from "./prompts";
 import type {
@@ -8,18 +7,9 @@ import type {
   RiskLimits,
   PortfolioState,
 } from "@/lib/types";
+import { getRiskLimits } from "@/lib/config";
 
-export const DEFAULT_RISK_LIMITS: RiskLimits = {
-  maxPositionSize: 5,         // 5% of portfolio per position
-  maxDrawdown: 15,            // 15% max drawdown
-  maxDailyLoss: 3,            // 3% max daily loss
-  maxOpenPositions: 5,
-  maxLeverage: 3,
-  stopLossPercent: 2,
-  takeProfitPercent: 4,
-  maxCorrelation: 0.7,
-  cooldownAfterLoss: 300,     // 5 minutes
-};
+export const DEFAULT_RISK_LIMITS: RiskLimits = getRiskLimits();
 
 // Dynamic import for risk engine (written by another agent)
 async function checkRiskLimits(
@@ -59,7 +49,7 @@ export async function runRiskManager(
   if (!signals.length) return [];
 
   const { text } = await generateText({
-    model: anthropic("claude-sonnet-4-20250514"),
+    model: "anthropic/claude-sonnet-4.6",
     system: RISK_MANAGER_PROMPT,
     tools: {
       checkRisk: tool({
@@ -177,8 +167,30 @@ Return your assessments as JSON:
   try {
     const jsonMatch = text.match(/\[[\s\S]*\]/);
     if (jsonMatch) {
-      const parsed = JSON.parse(jsonMatch[0]) as RiskAssessment[];
-      return parsed;
+      const raw = JSON.parse(jsonMatch[0]) as unknown[];
+      // Validate each assessment with Zod to prevent LLM hallucination
+      const assessmentSchema = z.object({
+        approved: z.boolean(),
+        adjustedSignal: z.any().optional().nullable(),
+        reasons: z.array(z.string()),
+        riskScore: z.number().min(0).max(100),
+        positionSizeRecommended: z.number().min(0),
+        stopLoss: z.number().min(0),
+        takeProfit: z.number().min(0),
+      });
+      return raw.map((item) => {
+        const parsed = assessmentSchema.safeParse(item);
+        if (parsed.success) return parsed.data as RiskAssessment;
+        // If validation fails, reject the signal safely
+        return {
+          approved: false,
+          reasons: [`LLM output validation failed: ${parsed.error.message}`],
+          riskScore: 100,
+          positionSizeRecommended: 0,
+          stopLoss: 0,
+          takeProfit: 0,
+        } as RiskAssessment;
+      });
     }
   } catch (error) {
     const msg = error instanceof Error ? error.message : "Unknown parsing error";

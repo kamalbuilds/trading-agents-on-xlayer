@@ -1,5 +1,4 @@
 import { generateText, tool, stepCountIs } from "ai";
-import { anthropic } from "@ai-sdk/anthropic";
 import { z } from "zod";
 import { EXECUTOR_PROMPT } from "./prompts";
 import type { TradeSignal, RiskAssessment, Order } from "@/lib/types";
@@ -51,7 +50,7 @@ export async function runExecutor(
   }
 
   const { text } = await generateText({
-    model: anthropic("claude-sonnet-4-20250514"),
+    model: "anthropic/claude-sonnet-4.6",
     system: EXECUTOR_PROMPT,
     tools: {
       executeOrder: tool({

@@ -1,5 +1,4 @@
 import { generateText, tool, stepCountIs } from "ai";
-import { anthropic } from "@ai-sdk/anthropic";
 import { z } from "zod";
 import { STRATEGIST_PROMPT } from "./prompts";
 import type { TradeSignal, PortfolioState, StrategyConfig } from "@/lib/types";
@@ -19,7 +18,7 @@ export async function runStrategist(
   activeStrategies: StrategyConfig[]
 ): Promise<StrategyProposal> {
   const { text } = await generateText({
-    model: anthropic("claude-sonnet-4-20250514"),
+    model: "anthropic/claude-sonnet-4.6",
     system: STRATEGIST_PROMPT,
     tools: {
       proposeTrade: tool({

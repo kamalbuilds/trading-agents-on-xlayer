@@ -187,7 +187,7 @@ export function recordTradeResult(
 
   if (isWin) {
     tradeState.consecutiveLosses = 0;
-    stratState.consecutiveLosses = Math.max(0, stratState.consecutiveLosses - 1);
+    stratState.consecutiveLosses = 0; // A win breaks ANY consecutive loss streak
   } else {
     tradeState.consecutiveLosses++;
     stratState.consecutiveLosses++;

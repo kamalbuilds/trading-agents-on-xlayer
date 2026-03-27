@@ -1,0 +1,42 @@
+{
+  "dna": {
+    "id": "gen3_142",
+    "generation": 3,
+    "fastMAPeriod": 25,
+    "slowMAPeriod": 105,
+    "maType": "sma",
+    "atrPeriod": 13,
+    "atrTrailMult": 5.234750786794603,
+    "positionSizePct": 26,
+    "useRegimeFilter": false,
+    "regimeMAPeriod": 136,
+    "minBarsBetweenTrades": 1,
+    "allowShorts": true,
+    "useRedDayEntry": false
+  },
+  "fitness": {
+    "total": 89.35842837781234,
+    "sharpe": 14.166968639706077,
+    "pnlPercent": 24.729910095093242,
+    "maxDrawdown": 0.22850655685462362,
+    "profitFactor": 34.578679868897,
+    "winRate": 79.16666666666667,
+    "totalTrades": 16,
+    "avgWinLossRatio": 16.231241738875834
+  },
+  "timestamp": "2026-03-27T09:40:04.363Z",
+  "datasets": [
+    {
+      "label": "BTC/USD 1D",
+      "candles": 721
+    },
+    {
+      "label": "BTC/USD 4H",
+      "candles": 721
+    },
+    {
+      "label": "ETH/USD 1D",
+      "candles": 721
+    }
+  ]
+}

@@ -1,6 +1,11 @@
 "use client";
 
 import { create } from "zustand";
+import {
+  getRiskLimits,
+  DEFAULT_STRATEGIES,
+  INITIAL_BALANCE,
+} from "@/lib/config";
 import type {
   SystemState,
   PortfolioState,
@@ -33,8 +38,8 @@ interface DashboardStore {
 }
 
 const EMPTY_PORTFOLIO: PortfolioState = {
-  balance: 0,
-  equity: 0,
+  balance: INITIAL_BALANCE,
+  equity: INITIAL_BALANCE,
   positions: [],
   openOrders: [],
   totalPnl: 0,
@@ -45,73 +50,13 @@ const EMPTY_PORTFOLIO: PortfolioState = {
   timestamp: Date.now(),
 };
 
-const DEFAULT_STRATEGIES: StrategyConfig[] = [
-  {
-    name: "Trend Following",
-    type: "trend_following",
-    pairs: ["BTC/USD", "ETH/USD"],
-    timeframe: "4h",
-    allocation: 35,
-    enabled: true,
-    params: { maFast: 20, maSlow: 50, atrMultiplier: 2.5 },
-  },
-  {
-    name: "Momentum",
-    type: "momentum",
-    pairs: ["ETH/USD", "SOL/USD"],
-    timeframe: "1h",
-    allocation: 25,
-    enabled: true,
-    params: { rsiPeriod: 14, rsiOverbought: 70, rsiOversold: 30 },
-  },
-  {
-    name: "Mean Reversion",
-    type: "mean_reversion",
-    pairs: ["SOL/USD", "AVAX/USD"],
-    timeframe: "15m",
-    allocation: 20,
-    enabled: true,
-    params: { bbPeriod: 20, bbStdDev: 2, entryThreshold: 1.5 },
-  },
-  {
-    name: "Breakout",
-    type: "breakout",
-    pairs: ["BTC/USD"],
-    timeframe: "1d",
-    allocation: 15,
-    enabled: false,
-    params: { lookbackPeriod: 20, volumeThreshold: 1.5 },
-  },
-  {
-    name: "Funding Arb",
-    type: "funding_rate_arb",
-    pairs: ["BTC/USD", "ETH/USD"],
-    timeframe: "8h",
-    allocation: 5,
-    enabled: true,
-    params: { minFundingRate: 0.01, maxExposure: 0.1 },
-  },
-];
-
-const DEFAULT_RISK_LIMITS: RiskLimits = {
-  maxPositionSize: 5,
-  maxDrawdown: 15,
-  maxDailyLoss: 3,
-  maxOpenPositions: 5,
-  maxLeverage: 3,
-  stopLossPercent: 2,
-  takeProfitPercent: 4,
-  maxCorrelation: 0.7,
-  cooldownAfterLoss: 300,
-};
-
 export const useDashboardStore = create<DashboardStore>((set, get) => ({
   systemState: {
     isRunning: false,
     mode: "paper",
     portfolio: EMPTY_PORTFOLIO,
     activeStrategies: DEFAULT_STRATEGIES,
-    riskLimits: DEFAULT_RISK_LIMITS,
+    riskLimits: getRiskLimits(),
     recentTrades: [],
     agentMessages: [],
     errors: [],

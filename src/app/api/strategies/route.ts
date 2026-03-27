@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { timingSafeEqual } from "crypto";
 import {
   analyzeTrendFollowing,
   analyzeMeanReversion,
@@ -7,6 +8,7 @@ import {
   analyzeEnsemble,
 } from "@/lib/strategies";
 import { getOHLC } from "@/lib/kraken/market-data";
+import { standardToKraken } from "@/lib/utils/pairs";
 import type { OHLC } from "@/lib/types";
 
 function checkApiKey(request: NextRequest): boolean {
@@ -19,7 +21,10 @@ function checkApiKey(request: NextRequest): boolean {
   const match = authHeader.match(/^Bearer\s+(.+)$/);
   if (!match) return false;
 
-  return match[1] === apiSecret;
+  const provided = Buffer.from(match[1]);
+  const expected = Buffer.from(apiSecret);
+  if (provided.length !== expected.length) return false;
+  return timingSafeEqual(provided, expected);
 }
 
 export async function GET(request: NextRequest) {
@@ -91,7 +96,7 @@ export async function POST(request: NextRequest) {
     if (rawCandles && rawCandles.length > 0) {
       candles = rawCandles;
     } else {
-      const krakenPair = (pair ?? "BTC/USD").replace("/", "");
+      const krakenPair = standardToKraken(pair ?? "BTC/USD");
       candles = await getOHLC(krakenPair, interval ?? 60);
 
       if (!candles.length) {
