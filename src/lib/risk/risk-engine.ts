@@ -24,6 +24,7 @@ import {
   portfolioHeat,
   directionalBias,
 } from "./correlation";
+import { runPolicyChecks } from "./policy-engine";
 
 export interface RiskEngineConfig {
   limits: RiskLimits;
@@ -33,6 +34,7 @@ export interface RiskEngineConfig {
 export interface RiskEngine {
   assess(signal: TradeSignal, portfolio: PortfolioState, candles?: OHLC[]): RiskAssessment;
   updateEquity(newEquity: number): void;
+  updateCorrelationMatrix(matrix: Map<string, number>): void;
   getDrawdownState(): DrawdownState;
   getCircuitBreakers(): CircuitBreakerSystem;
   recordTrade(strategy: string, isWin: boolean): void;
@@ -57,15 +59,36 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
     }
 
     const reasons: string[] = [];
-    let riskScore = 0; // 0 = no risk, 100 = maximum risk
+    let riskScore = 0; // 0 = no risk, 100 = maximum risk (additive, capped at 100)
     let approved = true;
+
+    // === Pre-Check: PolicyEngine (11 binary pass/fail checks) ===
+    const policyResult = runPolicyChecks(signal, portfolio, limits);
+    if (!policyResult.allowed) {
+      for (const v of policyResult.violations) {
+        reasons.push(`[POLICY:${v.policy}] ${v.message}`);
+      }
+      return {
+        approved: false,
+        reasons,
+        riskScore: 100,
+        positionSizeRecommended: 0,
+        stopLoss: 0,
+        takeProfit: 0,
+      };
+    }
+    // Add policy warnings (medium severity) as info
+    for (const v of policyResult.violations) {
+      reasons.push(`[POLICY:${v.policy}] ${v.message}`);
+      riskScore += 5;
+    }
 
     // === Check 1: Circuit breakers ===
     const portfolioBreaker = circuitBreakers.check("portfolio", "global", portfolio, limits);
     if (portfolioBreaker.status === "tripped") {
       reasons.push(`Portfolio circuit breaker tripped: ${portfolioBreaker.reason}`);
       approved = false;
-      riskScore = 100;
+      riskScore += 40;
     }
 
     const strategyBreaker = circuitBreakers.check(
@@ -77,7 +100,7 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
     if (strategyBreaker.status === "tripped") {
       reasons.push(`Strategy ${signal.strategy} circuit breaker tripped: ${strategyBreaker.reason}`);
       approved = false;
-      riskScore = Math.max(riskScore, 90);
+      riskScore += 30;
     }
 
     const tradeBreaker = circuitBreakers.check(
@@ -89,7 +112,7 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
     if (tradeBreaker.status === "tripped") {
       reasons.push(`Trade circuit breaker for ${signal.strategy}: ${tradeBreaker.reason}`);
       approved = false;
-      riskScore = Math.max(riskScore, 80);
+      riskScore += 25;
     }
 
     // === Check 2: Drawdown limits ===
@@ -102,7 +125,7 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
     if (drawdownCheck.breached) {
       reasons.push(...drawdownCheck.reasons);
       approved = false;
-      riskScore = Math.max(riskScore, 95);
+      riskScore += 35;
     }
 
     // === Check 3: Max open positions ===
@@ -111,7 +134,7 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
         `Max open positions reached: ${portfolio.positions.length}/${limits.maxOpenPositions}`
       );
       approved = false;
-      riskScore = Math.max(riskScore, 70);
+      riskScore += 20;
     }
 
     // === Check 4: Correlation check ===
@@ -126,8 +149,8 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
         .map((c) => `${c.pair} (${c.correlation.toFixed(2)})`)
         .join(", ");
       reasons.push(`High correlation with existing positions: ${pairs}`);
-      riskScore = Math.max(riskScore, 60);
-      // Don't block, but flag as high risk
+      riskScore += 15;
+      approved = false; // Correlation risk now blocks trades
     }
 
     // === Check 5: Portfolio concentration ===
@@ -136,14 +159,14 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
       reasons.push(
         `Portfolio over-concentrated (HHI: ${concentration.toFixed(2)})`
       );
-      riskScore = Math.max(riskScore, 50);
+      riskScore += 10;
     }
 
     // === Check 6: Portfolio heat ===
     const heat = portfolioHeat(portfolio.positions, portfolio.equity);
     if (heat > 100) {
       reasons.push(`Portfolio heat ${heat.toFixed(1)}% exceeds 100%`);
-      riskScore = Math.max(riskScore, 75);
+      riskScore += 20;
       if (heat > 150) {
         approved = false;
       }
@@ -159,7 +182,7 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
         reasons.push(
           `Adding to ${bias.bias} bias (net exposure: $${bias.netExposure.toFixed(2)})`
         );
-        riskScore = Math.max(riskScore, 40);
+        riskScore += 10;
       }
     }
 
@@ -167,8 +190,11 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
     if (signal.confidence < 0.3) {
       reasons.push(`Low confidence signal: ${(signal.confidence * 100).toFixed(0)}%`);
       approved = false;
-      riskScore = Math.max(riskScore, 50);
+      riskScore += 15;
     }
+
+    // Cap risk score at 100
+    riskScore = Math.min(100, riskScore);
 
     // === Position sizing ===
     const sizing = calculatePositionSize(signal, portfolio, limits, candles);
@@ -234,23 +260,16 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
   return {
     assess,
     updateEquity,
+    updateCorrelationMatrix,
     getDrawdownState: () => ({ ...drawdownState }),
     getCircuitBreakers: () => circuitBreakers,
     recordTrade,
   };
 }
 
-// Default risk limits from environment or sensible defaults
+import { getRiskLimits as _getConfigLimits } from "@/lib/config";
+
+// Default risk limits from central config (env vars with NaN protection)
 export function getDefaultRiskLimits(): RiskLimits {
-  return {
-    maxPositionSize: parseFloat(process.env.MAX_POSITION_SIZE ?? "5"),
-    maxDrawdown: parseFloat(process.env.MAX_DRAWDOWN ?? "15"),
-    maxDailyLoss: parseFloat(process.env.MAX_DAILY_LOSS ?? "3"),
-    maxOpenPositions: parseInt(process.env.MAX_OPEN_POSITIONS ?? "5", 10),
-    maxLeverage: parseFloat(process.env.MAX_LEVERAGE ?? "1"),
-    stopLossPercent: parseFloat(process.env.STOP_LOSS_PERCENT ?? "3"),
-    takeProfitPercent: parseFloat(process.env.TAKE_PROFIT_PERCENT ?? "6"),
-    maxCorrelation: parseFloat(process.env.MAX_CORRELATION ?? "0.7"),
-    cooldownAfterLoss: parseFloat(process.env.COOLDOWN_AFTER_LOSS ?? "300"),
-  };
+  return _getConfigLimits();
 }

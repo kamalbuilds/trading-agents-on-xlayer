@@ -43,6 +43,12 @@ export {
   type RiskEngineConfig,
 } from "./risk-engine";
 
+export {
+  runPolicyChecks,
+  type PolicyResult,
+  type PolicyViolation,
+} from "./policy-engine";
+
 // Convenience function expected by the risk-manager agent
 import type { TradeSignal, PortfolioState, RiskLimits } from "@/lib/types";
 import { createRiskEngine as _createEngine, type RiskEngine } from "./risk-engine";
