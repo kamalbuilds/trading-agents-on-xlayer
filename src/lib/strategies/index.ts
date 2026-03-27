@@ -6,6 +6,7 @@ export { analyzeBreakout, type BreakoutConfig } from "./breakout";
 export { analyzeIchimokuCloud, type IchimokuCloudConfig } from "./ichimoku-cloud";
 export { analyzeSuperTrend, type SuperTrendConfig } from "./supertrend";
 export { analyzeEvolvedTrend, type EvolvedTrendConfig } from "./evolved-trend";
+export { analyzeSmartMoney, type SmartMoneyConfig } from "./smart-money";
 export { analyzeEnsemble, type EnsembleConfig, type EnsembleInput, type EnsembleResult } from "./ensemble";
 export {
   ema, sma, rsi, bollingerBands, adx, atr, macd, volumeProfile, zScore,

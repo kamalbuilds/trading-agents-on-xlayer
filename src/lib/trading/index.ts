@@ -6,10 +6,11 @@ export {
   cancelAllOrders,
   configureExecutor,
   getExecutorConfig,
+  getModeTransitionLog,
   placeOrder,
   placeStopLoss,
 } from "./executor";
-export type { ExecutionMode } from "./executor";
+export type { ExecutionMode, ExecutionResult } from "./executor";
 
 export {
   configurePortfolio,

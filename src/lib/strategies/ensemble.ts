@@ -12,6 +12,9 @@ import { analyzeBreakout } from "./breakout";
 import { analyzeIchimokuCloud } from "./ichimoku-cloud";
 import { analyzeSuperTrend } from "./supertrend";
 import { analyzeEvolvedTrend } from "./evolved-trend";
+import { analyzeSmartMoney } from "./smart-money";
+import { detectTechnicalRegime, type MarketRegime, type RegimeResult } from "@/lib/regime-detector";
+import type { SmartMoneySignal } from "@/lib/nansen";
 
 export interface EnsembleConfig {
   weights: Record<string, number>;
@@ -23,9 +26,9 @@ export interface EnsembleConfig {
 
 const DEFAULT_CONFIG: EnsembleConfig = {
   weights: ENSEMBLE_WEIGHTS,
-  minConfidence: 0.55,
-  maxSignals: 3,
-  correlationPenalty: 0.15,
+  minConfidence: 0.30,
+  maxSignals: 5,
+  correlationPenalty: 0.08,
   pair: "BTC/USD",
 };
 
@@ -33,6 +36,8 @@ export interface EnsembleInput {
   candles: OHLC[];
   fundingData?: FundingRateData;
   historicalFundingRates?: number[];
+  atrHistory?: number[];
+  smartMoneySignal?: SmartMoneySignal | null;
 }
 
 export interface EnsembleResult extends StrategyResult {
@@ -40,6 +45,7 @@ export interface EnsembleResult extends StrategyResult {
   aggregatedSignals: TradeSignal[];
   consensus: "bullish" | "bearish" | "neutral" | "mixed";
   consensusStrength: number;
+  regime: RegimeResult;
 }
 
 export function analyzeEnsemble(
@@ -47,7 +53,7 @@ export function analyzeEnsemble(
   config: Partial<EnsembleConfig> = {}
 ): EnsembleResult {
   const cfg = { ...DEFAULT_CONFIG, ...config };
-  const { candles, fundingData, historicalFundingRates } = input;
+  const { candles, fundingData, historicalFundingRates, atrHistory, smartMoneySignal } = input;
 
   const strategyResults: Record<string, StrategyResult> = {};
 
@@ -62,6 +68,11 @@ export function analyzeEnsemble(
   // Evolved trend strategy (genetically optimized, highest backtest performance)
   strategyResults.evolved_trend = analyzeEvolvedTrend(candles, { pair: cfg.pair });
 
+  // Smart Money strategy (Nansen on-chain intelligence)
+  if (smartMoneySignal) {
+    strategyResults.smart_money = analyzeSmartMoney(smartMoneySignal, { pair: cfg.pair });
+  }
+
   if (fundingData && historicalFundingRates) {
     strategyResults.funding_rate_arb = analyzeFundingRate(
       fundingData,
@@ -70,34 +81,46 @@ export function analyzeEnsemble(
     );
   }
 
-  // Collect all signals with weights applied
-  const weightedSignals: (TradeSignal & { weight: number; strategyType: string })[] = [];
+  // Detect market regime from strategy indicators
+  const regime = detectTechnicalRegime(strategyResults, atrHistory);
+
+  // Collect signals with regime-adjusted confidence (NOT crushed by weight multiplication)
+  const weightedSignals: (TradeSignal & { weight: number; strategyType: string; rawConfidence: number })[] = [];
 
   for (const [stratType, result] of Object.entries(strategyResults)) {
-    const weight = cfg.weights[stratType] ?? 0.1;
+    const regimeWeight = regime.weights[stratType] ?? 0.1;
+
+    // Entry filter: skip strategies with regime weight <= 0.03
+    if (regimeWeight <= 0.03) continue;
+
+    const confMultiplier = regime.confidenceMultipliers[stratType] ?? 0.7;
+
     for (const signal of result.signals) {
-      if (signal.confidence >= cfg.minConfidence) {
+      // FIX: confidence is adjusted by regime multiplier, NOT crushed by weight
+      const finalConfidence = signal.confidence * confMultiplier;
+
+      if (finalConfidence >= cfg.minConfidence) {
         weightedSignals.push({
           ...signal,
-          weight,
+          weight: regimeWeight, // Used for position sizing, not multiplied into confidence
           strategyType: stratType,
-          confidence: signal.confidence,
+          confidence: finalConfidence,
+          rawConfidence: signal.confidence,
         });
       }
     }
   }
 
-  // Calculate consensus using weight * confidence for proper influence
+  // Calculate consensus using final confidence (regime-adjusted, not weight-crushed)
   let bullishScore = 0;
   let bearishScore = 0;
   for (const sig of weightedSignals) {
-    const weightedConfidence = sig.confidence * sig.weight;
-    if (sig.side === "buy") bullishScore += weightedConfidence;
-    else bearishScore += weightedConfidence;
+    if (sig.side === "buy") bullishScore += sig.confidence;
+    else bearishScore += sig.confidence;
   }
 
   // Also factor in strategies with no signal (implicit neutral)
-  const totalWeight = Object.values(cfg.weights).reduce((a, b) => a + b, 0);
+  const totalWeight = Object.values(regime.weights).reduce((a, b) => a + b, 0);
   const activeWeight = weightedSignals.reduce((sum, s) => sum + s.weight, 0);
   const neutralWeight = totalWeight - activeWeight;
 
@@ -131,6 +154,7 @@ export function analyzeEnsemble(
     ["mean_reversion", "breakout"],
     ["evolved_trend", "trend_following"],
     ["evolved_trend", "momentum"],
+    ["smart_money", "funding_rate_arb"],
   ];
 
   for (const [a, b] of correlatedPairs) {
@@ -146,11 +170,11 @@ export function analyzeEnsemble(
     }
   }
 
-  // Sort by weighted confidence, take top N
+  // Sort by regime-adjusted confidence, take top N
   const aggregatedSignals = weightedSignals
     .sort((a, b) => b.confidence - a.confidence)
     .slice(0, cfg.maxSignals)
-    .map(({ weight: _w, strategyType: _st, ...signal }) => ({
+    .map(({ weight: _w, strategyType: _st, rawConfidence: _rc, ...signal }) => ({
       ...signal,
       id: `ens-${signal.id}`,
       strategy: `ensemble:${signal.strategy}`,
@@ -168,6 +192,8 @@ export function analyzeEnsemble(
     consensusStrength,
     activeStrategies: Object.keys(strategyResults).length,
     totalSignals: weightedSignals.length,
+    regimeConfidence: regime.confidence,
+    regimeTransition: regime.transitionBlend ? 1 : 0,
   };
 
   // Merge key indicators from each strategy
@@ -180,12 +206,13 @@ export function analyzeEnsemble(
   return {
     strategy: "ensemble",
     signals: aggregatedSignals,
-    analysis: `ENSEMBLE [${consensus.toUpperCase()}] strength: ${(consensusStrength * 100).toFixed(0)}%\n${analyses}`,
+    analysis: `ENSEMBLE [${consensus.toUpperCase()}] strength: ${(consensusStrength * 100).toFixed(0)}% regime: ${regime.regime} (${(regime.confidence * 100).toFixed(0)}%)\n${analyses}`,
     indicators: combinedIndicators,
     timestamp: Date.now(),
     strategyResults,
     aggregatedSignals,
     consensus,
     consensusStrength,
+    regime,
   };
 }

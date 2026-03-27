@@ -21,14 +21,64 @@ interface ExecutorConfig {
 
 const defaultConfig: ExecutorConfig = {
   mode: "paper",
-  minConfidence: 0.5,
+  minConfidence: 0.30,
   maxSlippagePercent: 1.0,
   dryRun: false,
 };
 
 let config: ExecutorConfig = { ...defaultConfig };
 
-export function configureExecutor(opts: Partial<ExecutorConfig>): void {
+interface ModeTransition {
+  from: ExecutionMode;
+  to: ExecutionMode;
+  timestamp: number;
+  confirmedAt?: number;
+}
+
+const modeTransitionLog: ModeTransition[] = [];
+let lastLiveModeActivation = 0;
+const LIVE_MODE_COOLDOWN_MS = 5000;
+
+export function configureExecutor(
+  opts: Partial<ExecutorConfig>,
+  confirmation?: string
+): void {
+  const newMode = opts.mode;
+  const oldMode = config.mode;
+
+  if (newMode && newMode !== oldMode && (newMode === "live")) {
+    if (confirmation !== "CONFIRM") {
+      throw new Error(
+        "Switching to live mode requires confirmation. " +
+        "Pass confirmation: 'CONFIRM' to proceed."
+      );
+    }
+
+    const now = Date.now();
+    const elapsed = now - lastLiveModeActivation;
+    if (lastLiveModeActivation > 0 && elapsed < LIVE_MODE_COOLDOWN_MS) {
+      throw new Error(
+        `Live mode cooldown active. Wait ${Math.ceil((LIVE_MODE_COOLDOWN_MS - elapsed) / 1000)}s before switching again.`
+      );
+    }
+
+    lastLiveModeActivation = now;
+    modeTransitionLog.push({
+      from: oldMode,
+      to: newMode,
+      timestamp: now,
+      confirmedAt: now,
+    });
+    tradingEvents.emit("mode_switch", { from: oldMode, to: newMode, confirmed: true }, "executor");
+  } else if (newMode && newMode !== oldMode) {
+    modeTransitionLog.push({
+      from: oldMode,
+      to: newMode,
+      timestamp: Date.now(),
+    });
+    tradingEvents.emit("mode_switch", { from: oldMode, to: newMode }, "executor");
+  }
+
   config = { ...config, ...opts };
 }
 
@@ -36,7 +86,18 @@ export function getExecutorConfig(): ExecutorConfig {
   return { ...config };
 }
 
-export async function executeSignal(signal: TradeSignal): Promise<Order | null> {
+export function getModeTransitionLog(): ModeTransition[] {
+  return [...modeTransitionLog];
+}
+
+export interface ExecutionResult {
+  order: Order | null;
+  status: "executed" | "rejected" | "dry_run" | "error";
+  reason?: string;
+  simulated?: boolean;
+}
+
+export async function executeSignal(signal: TradeSignal): Promise<ExecutionResult> {
   // Validate confidence threshold
   if (signal.confidence < config.minConfidence) {
     tradingEvents.emit("trade_signal", {
@@ -44,46 +105,49 @@ export async function executeSignal(signal: TradeSignal): Promise<Order | null> 
       rejected: true,
       reason: `Confidence ${signal.confidence} below threshold ${config.minConfidence}`,
     }, "executor");
-    return null;
+    return {
+      order: null,
+      status: "rejected",
+      reason: `Confidence ${signal.confidence} below threshold ${config.minConfidence}`,
+    };
   }
 
   tradingEvents.emitSignal(signal, "executor");
 
   if (config.dryRun) {
     console.log(`[DRY RUN] Would execute: ${signal.side} ${signal.amount} ${signal.pair}`);
-    return null;
+    return { order: null, status: "dry_run", reason: "Dry run mode" };
   }
 
-  try {
-    let order: Order;
-    if (config.mode === "xlayer") {
-      order = await executeXLayerSignal(signal);
-    } else if (config.mode === "paper") {
-      order = await executePaper(signal);
-    } else {
-      order = await executeLive(signal);
-    }
-
-    tradingEvents.emitOrderPlaced(order, "executor");
-
-    if (order.status === "filled") {
-      tradingEvents.emitOrderFilled(order, "executor");
-    }
-
-    return order;
-  } catch (err) {
-    const message = err instanceof Error ? err.message : String(err);
-    tradingEvents.emitError(`Execution failed for ${signal.pair}: ${message}`, "executor");
-    return null;
+  let order: Order;
+  if (config.mode === "xlayer") {
+    order = await executeXLayerSignal(signal);
+  } else if (config.mode === "paper") {
+    order = await executePaper(signal);
+    order.status = "filled";
+    order.simulated = true;
+  } else {
+    order = await executeLive(signal);
   }
+
+  tradingEvents.emitOrderPlaced(order, "executor");
+
+  if (order.status === "filled") {
+    tradingEvents.emitOrderFilled(order, "executor");
+  }
+
+  return {
+    order,
+    status: "executed",
+    simulated: config.mode === "paper",
+  };
 }
 
-export async function executeBatch(signals: TradeSignal[]): Promise<(Order | null)[]> {
-  // Execute sequentially to respect rate limits
-  const results: (Order | null)[] = [];
+export async function executeBatch(signals: TradeSignal[]): Promise<ExecutionResult[]> {
+  const results: ExecutionResult[] = [];
   for (const signal of signals) {
-    const order = await executeSignal(signal);
-    results.push(order);
+    const result = await executeSignal(signal);
+    results.push(result);
   }
   return results;
 }
@@ -140,7 +204,9 @@ export async function placeOrder(
     reasoning: "Direct order placement",
     timestamp: Date.now(),
   };
-  return executeSignal(signal);
+  const result = await executeSignal(signal);
+  if (result.status === "error") throw new Error(result.reason);
+  return result.order;
 }
 
 export async function placeStopLoss(
@@ -161,7 +227,9 @@ export async function placeStopLoss(
     reasoning: "Stop-loss order",
     timestamp: Date.now(),
   };
-  return executeSignal(signal);
+  const result = await executeSignal(signal);
+  if (result.status === "error") throw new Error(result.reason);
+  return result.order;
 }
 
 // --- Internal ---
