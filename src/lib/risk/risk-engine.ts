@@ -25,6 +25,13 @@ import {
   directionalBias,
 } from "./correlation";
 import { runPolicyChecks } from "./policy-engine";
+import {
+  loadRiskState,
+  saveRiskState,
+  breakersToRecord,
+  recordToBreakers,
+  type PersistedRiskState,
+} from "./state-persistence";
 
 export interface RiskEngineConfig {
   limits: RiskLimits;
@@ -43,9 +50,33 @@ export interface RiskEngine {
 export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
   const { limits } = config;
   let correlationMatrix = config.correlationMatrix ?? new Map<string, number>();
+
+  // Load persisted state (conservative defaults if missing/corrupted)
+  const persistedState = loadRiskState();
+
   const circuitBreakers = createCircuitBreakerSystem();
-  let drawdownState = createDrawdownTracker(0);
-  let initialized = false;
+  // Restore circuit breaker state from disk
+  const restoredBreakers = recordToBreakers(persistedState.circuitBreakers);
+  for (const [key, state] of restoredBreakers) {
+    circuitBreakers.breakers.set(key, state);
+  }
+
+  // Restore drawdown state, or create fresh if persisted equity was 0 (conservative default)
+  let drawdownState: DrawdownState = persistedState.drawdown.highWaterMark > 0
+    ? persistedState.drawdown
+    : createDrawdownTracker(0);
+  let initialized = persistedState.drawdown.highWaterMark > 0;
+
+  function persistState(): void {
+    const state: PersistedRiskState = {
+      version: 1,
+      savedAt: Date.now(),
+      circuitBreakers: breakersToRecord(circuitBreakers.breakers),
+      drawdown: drawdownState,
+      tradeResults: {},
+    };
+    saveRiskState(state);
+  }
 
   function assess(
     signal: TradeSignal,
@@ -187,7 +218,7 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
     }
 
     // === Check 8: Signal confidence threshold ===
-    if (signal.confidence < 0.3) {
+    if (signal.confidence < 0.20) {
       reasons.push(`Low confidence signal: ${(signal.confidence * 100).toFixed(0)}%`);
       approved = false;
       riskScore += 15;
@@ -234,6 +265,9 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
       reasons.push("All risk checks passed");
     }
 
+    // Persist state after every assessment (captures breaker/drawdown changes)
+    persistState();
+
     return {
       approved,
       adjustedSignal: approved ? adjustedSignal : undefined,
@@ -247,10 +281,12 @@ export function createRiskEngine(config: RiskEngineConfig): RiskEngine {
 
   function updateEquity(newEquity: number): void {
     drawdownState = updateDrawdown(drawdownState, newEquity);
+    persistState();
   }
 
   function recordTrade(strategy: string, isWin: boolean): void {
     recordTradeResult(circuitBreakers, strategy, isWin);
+    persistState();
   }
 
   function updateCorrelationMatrix(matrix: Map<string, number>): void {

@@ -39,11 +39,11 @@ const checkValidPair: PolicyCheck = (signal) => {
 
 // Policy 2: Signal confidence must be above minimum threshold
 const checkMinConfidence: PolicyCheck = (signal) => {
-  if (signal.confidence < 0.3) {
+  if (signal.confidence < 0.20) {
     return {
       policy: "min_confidence",
       severity: "high",
-      message: `Confidence ${(signal.confidence * 100).toFixed(0)}% below 30% minimum`,
+      message: `Confidence ${(signal.confidence * 100).toFixed(0)}% below 20% minimum`,
     };
   }
   return null;
