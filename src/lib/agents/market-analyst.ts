@@ -118,13 +118,38 @@ Return your analysis as JSON with this structure:
 }`,
   });
 
+  const marketAnalysisSchema = z.object({
+    pair: z.string(),
+    sentiment: z.enum(["strongly_bullish", "bullish", "neutral", "bearish", "strongly_bearish"]),
+    summary: z.string(),
+    technicals: z.object({
+      trend: z.string(),
+      support: z.array(z.number()),
+      resistance: z.array(z.number()),
+      indicators: z.record(z.string(), z.number()),
+    }),
+    microstructure: z.object({
+      spreadBps: z.number(),
+      bookImbalance: z.number(),
+      volumeProfile: z.string(),
+    }),
+    alerts: z.array(z.string()),
+    timestamp: z.number().optional(),
+  });
+
   try {
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
-      return JSON.parse(jsonMatch[0]) as MarketAnalysis;
+      const raw = JSON.parse(jsonMatch[0]);
+      const parsed = marketAnalysisSchema.safeParse(raw);
+      if (parsed.success) {
+        return { ...parsed.data, timestamp: parsed.data.timestamp ?? Date.now() };
+      }
+      console.warn(`[market-analyst] LLM output validation failed: ${parsed.error.message}`, { raw: jsonMatch[0].slice(0, 500) });
     }
-  } catch {
-    // Fall through to default
+  } catch (error) {
+    const msg = error instanceof Error ? error.message : "Unknown parsing error";
+    console.warn(`[market-analyst] Failed to parse LLM output: ${msg}`, { raw: text.slice(0, 500) });
   }
 
   return {

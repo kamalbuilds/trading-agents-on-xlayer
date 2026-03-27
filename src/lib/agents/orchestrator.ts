@@ -3,7 +3,7 @@ import { z } from "zod";
 import { ORCHESTRATOR_PROMPT } from "./prompts";
 import { runMarketAnalyst, type MarketAnalysis } from "./market-analyst";
 import { runStrategist, type StrategyProposal } from "./strategist";
-import { runRiskManager, DEFAULT_RISK_LIMITS } from "./risk-manager";
+import { runRiskManager } from "./risk-manager";
 import { runExecutor, type ExecutionResult } from "./executor";
 import { formatMemoriesForPrompt } from "./reflection";
 import {
@@ -52,7 +52,7 @@ export function getDefaultConfig(): OrchestratorConfig {
   return {
     portfolio: DEFAULT_PORTFOLIO,
     activeStrategies: DEFAULT_STRATEGIES,
-    riskLimits: DEFAULT_RISK_LIMITS,
+    riskLimits: getRiskLimits(),
     mode: "paper",
   };
 }

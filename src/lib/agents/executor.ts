@@ -114,15 +114,45 @@ Return results as JSON:
 ]`,
   });
 
+  const orderSchema = z.object({
+    id: z.string(),
+    pair: z.string(),
+    side: z.enum(["buy", "sell"]),
+    type: z.string(),
+    amount: z.number(),
+    price: z.number().optional(),
+    status: z.string(),
+    timestamp: z.number(),
+  }).nullable();
+
+  const executionResultSchema = z.object({
+    signalId: z.string(),
+    order: orderSchema.optional().default(null),
+    status: z.enum(["executed", "failed", "skipped"]),
+    message: z.string(),
+    slippage: z.number().optional(),
+  });
+
   try {
     const jsonMatch = text.match(/\[[\s\S]*\]/);
     if (jsonMatch) {
-      const parsed = JSON.parse(jsonMatch[0]) as ExecutionResult[];
-      return parsed;
+      const raw = JSON.parse(jsonMatch[0]) as unknown[];
+      return raw.map((item, i) => {
+        const parsed = executionResultSchema.safeParse(item);
+        if (parsed.success) return parsed.data as ExecutionResult;
+        console.warn(`[executor] LLM output validation failed for result ${i}: ${parsed.error.message}`, { raw: JSON.stringify(item).slice(0, 300) });
+        const fallbackSignal = approvedPairs[i]?.signal;
+        return {
+          signalId: fallbackSignal?.id ?? `unknown_${i}`,
+          order: null,
+          status: "failed" as const,
+          message: `Execution result validation failed: ${parsed.error.message}`,
+        };
+      });
     }
   } catch (error) {
     const msg = error instanceof Error ? error.message : "Unknown parsing error";
-    console.warn(`[executor] Failed to parse LLM output: ${msg}`);
+    console.warn(`[executor] Failed to parse LLM output: ${msg}`, { raw: text.slice(0, 500) });
   }
 
   return approvedPairs.map(({ signal }) => ({

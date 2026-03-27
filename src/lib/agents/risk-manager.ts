@@ -9,8 +9,6 @@ import type {
 } from "@/lib/types";
 import { getRiskLimits } from "@/lib/config";
 
-export const DEFAULT_RISK_LIMITS: RiskLimits = getRiskLimits();
-
 // Dynamic import for risk engine (written by another agent)
 async function checkRiskLimits(
   signal: TradeSignal,
@@ -44,7 +42,7 @@ async function checkRiskLimits(
 export async function runRiskManager(
   signals: TradeSignal[],
   portfolio: PortfolioState | null,
-  limits: RiskLimits = DEFAULT_RISK_LIMITS
+  limits: RiskLimits = getRiskLimits()
 ): Promise<RiskAssessment[]> {
   if (!signals.length) return [];
 

@@ -89,31 +89,57 @@ Return your final assessment as JSON:
 }`,
   });
 
+  const tradeSignalSchema = z.object({
+    id: z.string().optional(),
+    strategy: z.string().optional(),
+    pair: z.string().optional(),
+    side: z.enum(["buy", "sell"]).optional(),
+    type: z.enum(["market", "limit", "stop-loss", "take-profit"]).optional(),
+    price: z.number().optional().nullable(),
+    amount: z.number().optional(),
+    confidence: z.number().min(0).max(1).optional(),
+    reasoning: z.string().optional(),
+    timestamp: z.number().optional(),
+  });
+
+  const proposalSchema = z.object({
+    signals: z.array(tradeSignalSchema).optional().default([]),
+    bullCase: z.string().optional().default(""),
+    bearCase: z.string().optional().default(""),
+    consensus: z.string().optional().default(""),
+    overallConfidence: z.number().min(0).max(1).optional().default(0),
+  });
+
   try {
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
-      const parsed = JSON.parse(jsonMatch[0]);
-      return {
-        signals: (parsed.signals ?? []).map((s: Partial<TradeSignal>) => ({
-          id: s.id ?? `sig_${Date.now()}`,
-          strategy: s.strategy ?? "unknown",
-          pair: s.pair ?? analysis.pair,
-          side: s.side ?? "buy",
-          type: s.type ?? "limit",
-          price: s.price,
-          amount: s.amount ?? 0,
-          confidence: s.confidence ?? 0,
-          reasoning: s.reasoning ?? "",
-          timestamp: s.timestamp ?? Date.now(),
-        })),
-        bullCase: parsed.bullCase ?? "",
-        bearCase: parsed.bearCase ?? "",
-        consensus: parsed.consensus ?? text,
-        overallConfidence: parsed.overallConfidence ?? 0,
-      };
+      const raw = JSON.parse(jsonMatch[0]);
+      const parsed = proposalSchema.safeParse(raw);
+      if (parsed.success) {
+        return {
+          signals: parsed.data.signals.map((s) => ({
+            id: s.id ?? `sig_${Date.now()}`,
+            strategy: s.strategy ?? "unknown",
+            pair: s.pair ?? analysis.pair,
+            side: s.side ?? "buy",
+            type: s.type ?? "limit",
+            price: s.price ?? undefined,
+            amount: s.amount ?? 0,
+            confidence: s.confidence ?? 0,
+            reasoning: s.reasoning ?? "",
+            timestamp: s.timestamp ?? Date.now(),
+          })),
+          bullCase: parsed.data.bullCase,
+          bearCase: parsed.data.bearCase,
+          consensus: parsed.data.consensus || text,
+          overallConfidence: parsed.data.overallConfidence,
+        };
+      }
+      console.warn(`[strategist] LLM output validation failed: ${parsed.error.message}`, { raw: jsonMatch[0].slice(0, 500) });
     }
-  } catch {
-    // Fall through
+  } catch (error) {
+    const msg = error instanceof Error ? error.message : "Unknown parsing error";
+    console.warn(`[strategist] Failed to parse LLM output: ${msg}`, { raw: text.slice(0, 500) });
   }
 
   return {

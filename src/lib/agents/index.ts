@@ -1,6 +1,6 @@
 export { runMarketAnalyst, type MarketAnalysis } from "./market-analyst";
 export { runStrategist, type StrategyProposal } from "./strategist";
-export { runRiskManager, DEFAULT_RISK_LIMITS } from "./risk-manager";
+export { runRiskManager } from "./risk-manager";
 export { runExecutor, type ExecutionResult } from "./executor";
 export { runOrchestrator, getDefaultConfig, type OrchestratorConfig } from "./orchestrator";
 export {
