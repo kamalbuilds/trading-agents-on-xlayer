@@ -26,19 +26,38 @@ const COLORS = [
 ];
 
 export function StrategyChart() {
-  const { systemState } = useDashboardStore();
-  const strategies = systemState.activeStrategies;
+  const { strategyAnalysis, systemState } = useDashboardStore();
 
-  const chartData = strategies.map((s, i) => ({
-    name: s.name,
-    value: s.allocation,
-    fill: COLORS[i % COLORS.length],
-  }));
+  // Derive chart data from live strategy analysis when available,
+  // fall back to static activeStrategies config
+  const hasLiveData = strategyAnalysis && strategyAnalysis.strategies;
+  const strategyNames = hasLiveData
+    ? Object.keys(strategyAnalysis.strategies)
+    : systemState.activeStrategies.map((s) => s.name);
+
+  const chartData = strategyNames.map((name, i) => {
+    if (hasLiveData) {
+      const s = strategyAnalysis.strategies[name];
+      return {
+        name,
+        value: s.signalCount || 1,
+        fill: COLORS[i % COLORS.length],
+        analysis: s.analysis,
+      };
+    }
+    const cfg = systemState.activeStrategies[i];
+    return {
+      name,
+      value: cfg?.allocation ?? 1,
+      fill: COLORS[i % COLORS.length],
+      analysis: "",
+    };
+  });
 
   const chartConfig: ChartConfig = {};
-  strategies.forEach((s, i) => {
-    chartConfig[s.name] = {
-      label: s.name,
+  strategyNames.forEach((name, i) => {
+    chartConfig[name] = {
+      label: name,
       color: COLORS[i % COLORS.length],
     };
   });
@@ -48,55 +67,75 @@ export function StrategyChart() {
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
           <PieChartIcon className="h-4 w-4" />
-          Strategy Allocation
+          Strategy Analysis
+          {strategyAnalysis?.ensemble && (
+            <Badge
+              variant="outline"
+              className={`ml-auto text-[10px] ${
+                strategyAnalysis.ensemble.consensus === "BUY"
+                  ? "border-emerald-500/40 text-emerald-400"
+                  : strategyAnalysis.ensemble.consensus === "SELL"
+                    ? "border-red-500/40 text-red-400"
+                    : "border-muted-foreground/40 text-muted-foreground"
+              }`}
+            >
+              Consensus: {strategyAnalysis.ensemble.consensus}{" "}
+              ({(strategyAnalysis.ensemble.consensusStrength * 100).toFixed(0)}%)
+            </Badge>
+          )}
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="mx-auto h-[200px] w-full">
-          <PieChart>
-            <ChartTooltip
-              content={
-                <ChartTooltipContent
-                  formatter={(value) => [`${value}%`]}
+        {chartData.length > 0 ? (
+          <>
+            <ChartContainer config={chartConfig} className="mx-auto h-[200px] w-full">
+              <PieChart>
+                <ChartTooltip
+                  content={
+                    <ChartTooltipContent
+                      formatter={(value) => [`${value}`]}
+                    />
+                  }
                 />
-              }
-            />
-            <Pie
-              data={chartData}
-              dataKey="value"
-              nameKey="name"
-              cx="50%"
-              cy="50%"
-              innerRadius={50}
-              outerRadius={80}
-              paddingAngle={2}
-              strokeWidth={0}
-            >
-              {chartData.map((entry, index) => (
-                <Cell key={`cell-${index}`} fill={entry.fill} />
-              ))}
-            </Pie>
-          </PieChart>
-        </ChartContainer>
+                <Pie
+                  data={chartData}
+                  dataKey="value"
+                  nameKey="name"
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={50}
+                  outerRadius={80}
+                  paddingAngle={2}
+                  strokeWidth={0}
+                >
+                  {chartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                  ))}
+                </Pie>
+              </PieChart>
+            </ChartContainer>
 
-        <div className="mt-3 flex flex-wrap gap-2">
-          {strategies.map((s, i) => (
-            <Badge
-              key={s.name}
-              variant="outline"
-              className="gap-1.5 text-xs"
-            >
-              <span
-                className="inline-block h-2 w-2 rounded-full"
-                style={{ backgroundColor: COLORS[i % COLORS.length] }}
-              />
-              {s.name} ({s.allocation}%)
-              {!s.enabled && (
-                <span className="text-muted-foreground ml-1">off</span>
-              )}
-            </Badge>
-          ))}
-        </div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {chartData.map((s, i) => (
+                <Badge
+                  key={s.name}
+                  variant="outline"
+                  className="gap-1.5 text-xs"
+                >
+                  <span
+                    className="inline-block h-2 w-2 rounded-full"
+                    style={{ backgroundColor: COLORS[i % COLORS.length] }}
+                  />
+                  {s.name}
+                </Badge>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="flex h-[200px] items-center justify-center text-sm text-muted-foreground">
+            No strategy data available
+          </div>
+        )}
       </CardContent>
     </Card>
   );

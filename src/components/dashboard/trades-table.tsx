@@ -50,7 +50,8 @@ export function TradesTable() {
               <TableHead>Type</TableHead>
               <TableHead className="text-right">Price</TableHead>
               <TableHead className="text-right">Amount</TableHead>
-              <TableHead className="text-right pr-4">Fee</TableHead>
+              <TableHead className="text-right">Fee</TableHead>
+              <TableHead className="text-right pr-4">Source</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -83,8 +84,20 @@ export function TradesTable() {
                 <TableCell className="text-right font-mono tabular-nums">
                   {trade.amount}
                 </TableCell>
-                <TableCell className="text-right pr-4 font-mono tabular-nums text-muted-foreground">
+                <TableCell className="text-right font-mono tabular-nums text-muted-foreground">
                   ${trade.fee.toFixed(2)}
+                </TableCell>
+                <TableCell className="text-right pr-4">
+                  <Badge
+                    variant="outline"
+                    className={`text-[10px] ${
+                      trade.simulated
+                        ? "border-amber-500/40 text-amber-400"
+                        : "border-emerald-500/40 text-emerald-400"
+                    }`}
+                  >
+                    {trade.simulated ? "Paper" : "Live"}
+                  </Badge>
                 </TableCell>
               </TableRow>
             ))}
