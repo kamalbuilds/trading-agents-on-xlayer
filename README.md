@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Trading Agents on X Layer
+
+AI-powered multi-agent trading system built on OKX X Layer. Autonomous agents collaborate to analyze markets, generate trade signals, assess risk, and execute trades on-chain through X Layer DEX.
+
+## Architecture
+
+```
+Market Data → Analysis Agents → Trade Signals → Risk Engine → DEX Executor (X Layer)
+                                                      ↓
+                                              x402 Agent Payments
+```
+
+### Core Components
+
+- **Multi-Agent System**: Specialized agents for market analysis, signal generation, and risk assessment
+- **Genetic Strategy Evolution**: Trading strategies that evolve and adapt using genetic algorithms
+- **Risk Engine**: Position sizing, drawdown limits, correlation checks, signal freshness validation
+- **X Layer DEX Executor**: Routes trades through X Layer DEX with configurable slippage and gas
+- **x402 Agent Payments**: Micropayment system for agent-to-agent service billing
+- **OnchainOS Integration**: CLI wrapper for wallet, swap, and portfolio operations
+
+### Execution Modes
+
+| Mode | Description |
+|------|-------------|
+| `paper` | Simulated trading with virtual portfolio |
+| `live` | Real execution via connected exchange |
+| `xlayer` | On-chain execution through X Layer DEX |
+
+## Tech Stack
+
+- **Frontend**: Next.js 15, React, TailwindCSS
+- **Backend**: Next.js API routes, TypeScript
+- **Blockchain**: X Layer (EVM, Chain ID 196/1952), viem
+- **AI**: Multi-agent orchestration with genetic evolution
+- **Payments**: x402 protocol for agent micropayments
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+WALLET_KEY=<your-private-key>
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## On-Chain Verification
 
-## Learn More
+**X Layer Testnet TX**: [`0xe38ab18d61ed1fcb6bb7a36e9df8ddf0dcfefd3a9807ed5d07ce76f09e7294fc`](https://www.okx.com/web3/explorer/xlayer-test/tx/0xe38ab18d61ed1fcb6bb7a36e9df8ddf0dcfefd3a9807ed5d07ce76f09e7294fc)
 
-To learn more about Next.js, take a look at the following resources:
+To send your own X Layer transaction:
+```bash
+bun run scripts/xlayer-tx.mjs
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API Endpoints
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/xlayer` | GET | System status |
+| `/api/xlayer` | POST | Swap, balance, portfolio operations |
+| `/api/trade` | POST | Submit trade signals through risk engine |
+| `/api/status` | GET | Portfolio and system status |
+| `/api/strategies` | GET | List active trading strategies |
 
-## Deploy on Vercel
+## Live Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Deployed at**: [app-dusky-two-11.vercel.app](https://app-dusky-two-11.vercel.app)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Key Files
+
+```
+src/
+├── lib/
+│   ├── xlayer/
+│   │   ├── onchainos-client.ts    # OnchainOS CLI wrapper
+│   │   ├── x402-payments.ts       # Agent micropayment system
+│   │   └── dex-executor.ts        # X Layer DEX trade routing
+│   ├── agents/                    # Trading agent implementations
+│   ├── risk/                      # Risk engine and position sizing
+│   └── strategies/                # Genetic strategy evolution
+├── app/
+│   └── api/
+│       ├── xlayer/route.ts        # X Layer API endpoint
+│       ├── trade/route.ts         # Trade execution endpoint
+│       └── status/route.ts        # System status endpoint
+scripts/
+└── xlayer-tx.mjs                  # X Layer testnet transaction script
+```
