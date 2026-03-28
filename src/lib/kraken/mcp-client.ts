@@ -96,7 +96,9 @@ export class KrakenMcpClient extends EventEmitter {
     });
 
     proc.on("error", (err) => {
-      this.emit("error", err);
+      this.rejectAllPending(err instanceof Error ? err : new Error(String(err)));
+      this.process = null;
+      this.initialized = false;
     });
 
     // MCP initialize handshake

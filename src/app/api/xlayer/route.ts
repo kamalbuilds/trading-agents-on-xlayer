@@ -5,7 +5,7 @@
 // ============================================================
 
 import { NextRequest, NextResponse } from 'next/server';
-import { timingSafeEqual } from 'crypto';
+import { checkApiKey, unauthorized } from '@/lib/auth';
 import {
   executeXLayerSwap,
   executeXLayerSignal,
@@ -59,25 +59,6 @@ interface APIResponse<T = unknown> {
 // Utilities
 // ============================================================
 
-/**
- * Check API key from Authorization header
- */
-function checkApiKey(request: NextRequest): boolean {
-  const apiSecret = process.env.API_SECRET_KEY;
-  if (!apiSecret) return true; // Dev mode: allow all if env var not set
-
-  const authHeader = request.headers.get('Authorization');
-  if (!authHeader) return false;
-
-  const match = authHeader.match(/^Bearer\s+(.+)$/);
-  if (!match) return false;
-
-  // Timing-safe comparison to prevent timing attacks
-  const provided = Buffer.from(match[1]);
-  const expected = Buffer.from(apiSecret);
-  if (provided.length !== expected.length) return false;
-  return timingSafeEqual(provided, expected);
-}
 
 /**
  * Add CORS headers to response
@@ -162,7 +143,9 @@ export async function POST(request: NextRequest) {
  * GET /api/xlayer
  * Returns X Layer integration status and configuration
  */
-export async function GET() {
+export async function GET(request: NextRequest) {
+  if (!checkApiKey(request)) return unauthorized();
+
   try {
     const result = handleStatus();
     return addCORSHeaders(NextResponse.json(result, { status: 200 }));

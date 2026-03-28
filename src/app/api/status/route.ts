@@ -1,35 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getPortfolioState, getCompletedTrades } from "@/lib/trading";
-
-function checkApiKey(request: NextRequest): boolean {
-  const apiSecret = process.env.API_SECRET_KEY;
-  if (!apiSecret) return true; // Dev mode: allow all if env var not set
-
-  const authHeader = request.headers.get("Authorization");
-  if (!authHeader) return false;
-
-  const match = authHeader.match(/^Bearer\s+(.+)$/);
-  if (!match) return false;
-
-  return match[1] === apiSecret;
-}
+import { checkApiKey, unauthorized } from "@/lib/auth";
+import { getCompletedTrades } from "@/lib/trading";
+import { getRunning, getStartTime, getLastCycleResult } from "@/lib/market/engine";
 
 export async function GET(request: NextRequest) {
-  if (!checkApiKey(request)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  if (!checkApiKey(request)) return unauthorized();
 
   try {
-    const portfolio = await getPortfolioState();
-    const recentTrades = getCompletedTrades().slice(-50);
+    const running = getRunning();
+    const lastCycle = getLastCycleResult();
+    const portfolio = lastCycle?.portfolio ?? null;
+    const recentTrades = lastCycle?.recentTrades ?? getCompletedTrades().slice(-50);
 
     return NextResponse.json({
       status: "ok",
-      isRunning: true,
+      isRunning: running,
       mode: "paper",
       portfolio,
       recentTrades,
-      uptime: process.uptime(),
+      uptime: running ? Math.floor((Date.now() - getStartTime()) / 1000) : 0,
       timestamp: Date.now(),
     });
   } catch (err) {

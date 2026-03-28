@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { timingSafeEqual } from "crypto";
+import { checkApiKey, unauthorized } from "@/lib/auth";
 import { createRiskEngine, getDefaultRiskLimits } from "@/lib/risk";
 import type {
   TradeSignal,
@@ -18,28 +18,9 @@ function getRiskEngine() {
   return riskEngine;
 }
 
-function checkApiKey(request: NextRequest): boolean {
-  const apiSecret = process.env.API_SECRET_KEY;
-  if (!apiSecret) return true; // Dev mode: allow all if env var not set
-
-  const authHeader = request.headers.get("Authorization");
-  if (!authHeader) return false;
-
-  const match = authHeader.match(/^Bearer\s+(.+)$/);
-  if (!match) return false;
-
-  // Timing-safe comparison to prevent timing attacks
-  const provided = Buffer.from(match[1]);
-  const expected = Buffer.from(apiSecret);
-  if (provided.length !== expected.length) return false;
-  return timingSafeEqual(provided, expected);
-}
-
 // POST /api/trade - Submit a trade signal for risk assessment and execution
 export async function POST(request: NextRequest) {
-  if (!checkApiKey(request)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  if (!checkApiKey(request)) return unauthorized();
   try {
     const body = await request.json();
     const { signal, portfolio } = body as {
@@ -103,9 +84,7 @@ export async function POST(request: NextRequest) {
 
 // GET /api/trade - Get current risk engine state
 export async function GET(request: NextRequest) {
-  if (!checkApiKey(request)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  if (!checkApiKey(request)) return unauthorized();
 
   const engine = getRiskEngine();
 
@@ -118,9 +97,7 @@ export async function GET(request: NextRequest) {
 
 // PATCH /api/trade - Record trade results for circuit breaker tracking
 export async function PATCH(request: NextRequest) {
-  if (!checkApiKey(request)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  if (!checkApiKey(request)) return unauthorized();
 
   try {
     const body = await request.json();
