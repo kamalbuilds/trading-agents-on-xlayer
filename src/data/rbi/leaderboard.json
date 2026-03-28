@@ -1,0 +1,5143 @@
+{
+  "version": 1,
+  "lastUpdated": 1774709458549,
+  "strategies": [
+    {
+      "strategyId": "gen1_1774709388458_xiya",
+      "name": "Evolved Trend [gen1_1774709]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "B",
+      "fitnessScore": 57.24,
+      "sharpeRatio": 0.66,
+      "maxDrawdown": 9.59,
+      "winRate": 1,
+      "profitFactor": 999,
+      "totalReturn": 2.7184563398233696,
+      "generation": 1,
+      "parents": [
+        "gen0_1774709350382_gdhs",
+        "gen1_1774709378713_u3a5"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 57.24,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen2_1774709398403_pp2k",
+      "name": "Evolved Trend [gen2_1774709]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "B",
+      "fitnessScore": 57.24,
+      "sharpeRatio": 0.66,
+      "maxDrawdown": 9.59,
+      "winRate": 1,
+      "profitFactor": 999,
+      "totalReturn": 2.7184563398233696,
+      "generation": 2,
+      "parents": [
+        "gen1_1774709388458_xiya",
+        "gen1_1774709378713_e548"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 57.24,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen3_1774709407885_otyo",
+      "name": "Evolved Trend [gen3_1774709]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "B",
+      "fitnessScore": 57.24,
+      "sharpeRatio": 0.66,
+      "maxDrawdown": 9.59,
+      "winRate": 1,
+      "profitFactor": 999,
+      "totalReturn": 2.7184563398233696,
+      "generation": 3,
+      "parents": [
+        "gen2_1774709398403_pp2k",
+        "gen1_1774709378713_u3a5"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 3,
+          "fitness": 57.24,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen3_1774709407885_ikbt",
+      "name": "Evolved Trend [gen3_1774709]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "B",
+      "fitnessScore": 57.24,
+      "sharpeRatio": 0.66,
+      "maxDrawdown": 9.59,
+      "winRate": 1,
+      "profitFactor": 999,
+      "totalReturn": 2.7184563398233696,
+      "generation": 3,
+      "parents": [
+        "gen2_1774709398403_pp2k",
+        "gen1_1774709388458_xiya"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 3,
+          "fitness": 57.24,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen2_1774709417150_hif7",
+      "name": "Evolved Trend [gen2_1774709]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "B",
+      "fitnessScore": 57.24,
+      "sharpeRatio": 0.66,
+      "maxDrawdown": 9.59,
+      "winRate": 1,
+      "profitFactor": 999,
+      "totalReturn": 2.7184563398233696,
+      "generation": 2,
+      "parents": [
+        "gen1_1774709388458_xiya",
+        "gen3_1774709407885_otyo"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 57.24,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen4_1774709417150_51ki",
+      "name": "Evolved Trend [gen4_1774709]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "B",
+      "fitnessScore": 55.02,
+      "sharpeRatio": 0.81,
+      "maxDrawdown": 9.58,
+      "winRate": 1,
+      "profitFactor": 999,
+      "totalReturn": 3.5094718914124865,
+      "generation": 4,
+      "parents": [
+        "gen3_1774709407885_otyo",
+        "gen3_1774709407885_otyo"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 4,
+          "fitness": 55.02,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen0_1774708056218_ynz4",
+      "name": "Mean Reversion [gen0_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 37.81,
+      "sharpeRatio": -1.44,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6666666666666666,
+      "profitFactor": 0.57,
+      "totalReturn": -13.355356428238938,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 37.81,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774708056218_g4e5",
+      "name": "Mean Reversion [gen0_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 37.81,
+      "sharpeRatio": -1.25,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6666666666666666,
+      "profitFactor": 0.6,
+      "totalReturn": -11.904847405405981,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 37.81,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708071939_57k9",
+      "name": "Mean Reversion [gen1_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 37.81,
+      "sharpeRatio": -1.67,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6666666666666666,
+      "profitFactor": 0.52,
+      "totalReturn": -15.045996124235097,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708056218_g4e5",
+        "seed_mean_reversion_mutated_1774708056218"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 37.81,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708071939_1hy5",
+      "name": "Mean Reversion [gen1_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 37.81,
+      "sharpeRatio": -1.44,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6666666666666666,
+      "profitFactor": 0.57,
+      "totalReturn": -13.355356428238938,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708056218_ynz4",
+        "gen0_1774708056218_vhju"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 37.81,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen2_1774708077682_2ubl",
+      "name": "Mean Reversion [gen2_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 37.81,
+      "sharpeRatio": -1.44,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6666666666666666,
+      "profitFactor": 0.57,
+      "totalReturn": -13.355356428238938,
+      "generation": 2,
+      "parents": [
+        "gen1_1774708071939_1hy5",
+        "gen0_1774708056218_ynz4"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 37.81,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708077682_0pny",
+      "name": "Mean Reversion [gen1_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 37.81,
+      "sharpeRatio": -1.44,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6666666666666666,
+      "profitFactor": 0.57,
+      "totalReturn": -13.355356428238938,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708056218_ynz4",
+        "gen0_1774708056218_ynz4"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 37.81,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "seed_supertrend_1774701250921",
+      "name": "SuperTrend [seed_supertr]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_supertrend_mutated_1774701250921",
+      "name": "SuperTrend [seed_supertr]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701250921_gkaf",
+      "name": "SuperTrend [gen0_1774701]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701250921_ze38",
+      "name": "SuperTrend [gen0_1774701]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_ichimoku_1774701252948",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_ichimoku_mutated_1774701252948",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701252948_s887",
+      "name": "Ichimoku Cloud [gen0_1774701]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701252948_y78r",
+      "name": "Ichimoku Cloud [gen0_1774701]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_momentum_1774701253397",
+      "name": "Momentum [seed_momentu]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_momentum_mutated_1774701253397",
+      "name": "Momentum [seed_momentu]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701253397_1kp2",
+      "name": "Momentum [gen0_1774701]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701253397_sohl",
+      "name": "Momentum [gen0_1774701]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_mean_reversion_1774701255302",
+      "name": "Mean Reversion [seed_mean_re]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_mean_reversion_mutated_1774701255302",
+      "name": "Mean Reversion [seed_mean_re]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701255302_ig6n",
+      "name": "Mean Reversion [gen0_1774701]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701255302_wh5d",
+      "name": "Mean Reversion [gen0_1774701]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_trend_following_1774701256992",
+      "name": "Trend Following [seed_trend_f]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_trend_following_mutated_1774701256992",
+      "name": "Trend Following [seed_trend_f]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701256992_qnd8",
+      "name": "Trend Following [gen0_1774701]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701256992_o16x",
+      "name": "Trend Following [gen0_1774701]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_breakout_1774701259927",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_breakout_mutated_1774701259927",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701259927_larc",
+      "name": "Breakout [gen0_1774701]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701259927_w0r2",
+      "name": "Breakout [gen0_1774701]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_evolved_trend_1774701261851",
+      "name": "Evolved Trend [seed_evolved]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_evolved_trend_mutated_1774701261851",
+      "name": "Evolved Trend [seed_evolved]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701261851_y1tm",
+      "name": "Evolved Trend [gen0_1774701]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "gen0_1774701261851_a3a5",
+      "name": "Evolved Trend [gen0_1774701]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774701262315
+        }
+      ],
+      "createdAt": 1774701262315,
+      "updatedAt": 1774701262315
+    },
+    {
+      "strategyId": "seed_supertrend_1774707226330",
+      "name": "SuperTrend [seed_supertr]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574076
+        }
+      ],
+      "createdAt": 1774707574076,
+      "updatedAt": 1774707574076
+    },
+    {
+      "strategyId": "seed_supertrend_mutated_1774707226330",
+      "name": "SuperTrend [seed_supertr]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707226330_9axf",
+      "name": "SuperTrend [gen0_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707226330_mchw",
+      "name": "SuperTrend [gen0_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen2_1774707271563_w0dr",
+      "name": "SuperTrend [gen2_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 2,
+      "parents": [
+        "gen1_1774707260199_z52e",
+        "seed_supertrend_1774707226330"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707271563_blx3",
+      "name": "SuperTrend [gen1_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707226330_mchw",
+        "gen1_1774707260199_z52e"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_ichimoku_1774707292748",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_ichimoku_mutated_1774707292748",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707292748_aj53",
+      "name": "Ichimoku Cloud [gen0_1774707]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707292748_bxv5",
+      "name": "Ichimoku Cloud [gen0_1774707]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen2_1774707311767_delj",
+      "name": "Ichimoku Cloud [gen2_1774707]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 2,
+      "parents": [
+        "gen1_1774707308065_pi23",
+        "gen1_1774707308065_754s"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707311767_9y4l",
+      "name": "Ichimoku Cloud [gen1_1774707]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_ichimoku_mutated_1774707292748",
+        "gen0_1774707292748_bxv5"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_momentum_1774707318105",
+      "name": "Momentum [seed_momentu]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_momentum_mutated_1774707318105",
+      "name": "Momentum [seed_momentu]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707318105_zqpw",
+      "name": "Momentum [gen0_1774707]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707318105_njhb",
+      "name": "Momentum [gen0_1774707]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707357348_yeno",
+      "name": "Momentum [gen1_1774707]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_momentum_1774707318105",
+        "gen0_1774707318105_zqpw"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707357348_8rri",
+      "name": "Momentum [gen1_1774707]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_momentum_1774707318105",
+        "gen0_1774707318105_zqpw"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_mean_reversion_1774707376697",
+      "name": "Mean Reversion [seed_mean_re]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_mean_reversion_mutated_1774707376697",
+      "name": "Mean Reversion [seed_mean_re]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707376697_deb9",
+      "name": "Mean Reversion [gen0_1774707]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707376697_pk5a",
+      "name": "Mean Reversion [gen0_1774707]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen2_1774707409242_krtz",
+      "name": "Mean Reversion [gen2_1774707]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 2,
+      "parents": [
+        "gen1_1774707401580_4wbq",
+        "gen1_1774707401580_4wbq"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707409242_dfkd",
+      "name": "Mean Reversion [gen1_1774707]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707376697_pk5a",
+        "gen0_1774707376697_deb9"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_trend_following_1774707421782",
+      "name": "Trend Following [seed_trend_f]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_trend_following_mutated_1774707421782",
+      "name": "Trend Following [seed_trend_f]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707421782_cex8",
+      "name": "Trend Following [gen0_1774707]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707421782_g2zl",
+      "name": "Trend Following [gen0_1774707]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707486742_8jch",
+      "name": "Trend Following [gen1_1774707]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_trend_following_mutated_1774707421782",
+        "gen1_1774707475277_im0w"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707486742_jayn",
+      "name": "Trend Following [gen1_1774707]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707421782_cex8",
+        "seed_trend_following_1774707421782"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_breakout_1774707512417",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_breakout_mutated_1774707512417",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707512417_nejc",
+      "name": "Breakout [gen0_1774707]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707512417_0i8t",
+      "name": "Breakout [gen0_1774707]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707540335_yqlx",
+      "name": "Breakout [gen1_1774707]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707512417_nejc",
+        "gen1_1774707534059_2wi8"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707540335_d6we",
+      "name": "Breakout [gen1_1774707]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707512417_nejc",
+        "gen1_1774707534059_2wi8"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_evolved_trend_1774707553956",
+      "name": "Evolved Trend [seed_evolved]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_evolved_trend_mutated_1774707553956",
+      "name": "Evolved Trend [seed_evolved]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707553956_g98z",
+      "name": "Evolved Trend [gen0_1774707]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen0_1774707553956_oc6m",
+      "name": "Evolved Trend [gen0_1774707]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707566960_3kiy",
+      "name": "Evolved Trend [gen1_1774707]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_evolved_trend_1774707553956",
+        "gen0_1774707553956_oc6m"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "gen1_1774707566960_pky9",
+      "name": "Evolved Trend [gen1_1774707]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_evolved_trend_mutated_1774707553956",
+        "gen1_1774707563960_jk7j"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707574077
+        }
+      ],
+      "createdAt": 1774707574077,
+      "updatedAt": 1774707574077
+    },
+    {
+      "strategyId": "seed_supertrend_1774707575919",
+      "name": "SuperTrend [seed_supertr]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_supertrend_mutated_1774707575919",
+      "name": "SuperTrend [seed_supertr]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707575919_fgcv",
+      "name": "SuperTrend [gen0_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707575919_fy10",
+      "name": "SuperTrend [gen0_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707607780_0uvn",
+      "name": "SuperTrend [gen1_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707575919_fy10",
+        "gen1_1774707595668_fq7e"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707607780_72e8",
+      "name": "SuperTrend [gen1_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707575919_fgcv",
+        "gen1_1774707595668_fq7e"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_ichimoku_1774707628127",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_ichimoku_mutated_1774707628127",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707628127_xid5",
+      "name": "Ichimoku Cloud [gen0_1774707]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707628127_6dkz",
+      "name": "Ichimoku Cloud [gen0_1774707]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707642005_z1up",
+      "name": "Ichimoku Cloud [gen1_1774707]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_ichimoku_1774707628127",
+        "gen0_1774707628127_xid5"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707642006_yv1a",
+      "name": "Ichimoku Cloud [gen1_1774707]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707628127_xid5",
+        "seed_ichimoku_1774707628127"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_momentum_1774707649009",
+      "name": "Momentum [seed_momentu]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_momentum_mutated_1774707649009",
+      "name": "Momentum [seed_momentu]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707649009_j0xh",
+      "name": "Momentum [gen0_1774707]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707649009_mf6z",
+      "name": "Momentum [gen0_1774707]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707682971_zul5",
+      "name": "Momentum [gen1_1774707]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707649009_j0xh",
+        "gen0_1774707649009_j0xh"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707682971_ckve",
+      "name": "Momentum [gen1_1774707]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707649009_j0xh",
+        "gen1_1774707674870_ynwh"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_mean_reversion_1774707693456",
+      "name": "Mean Reversion [seed_mean_re]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_mean_reversion_mutated_1774707693456",
+      "name": "Mean Reversion [seed_mean_re]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707693456_4j8i",
+      "name": "Mean Reversion [gen0_1774707]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707693456_9rz1",
+      "name": "Mean Reversion [gen0_1774707]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen2_1774707723049_8ps8",
+      "name": "Mean Reversion [gen2_1774707]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 2,
+      "parents": [
+        "gen1_1774707713482_9f4n",
+        "gen1_1774707713482_x2cb"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707723049_zkn4",
+      "name": "Mean Reversion [gen1_1774707]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_mean_reversion_1774707693456",
+        "seed_mean_reversion_mutated_1774707693456"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_trend_following_1774707736398",
+      "name": "Trend Following [seed_trend_f]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_trend_following_mutated_1774707736398",
+      "name": "Trend Following [seed_trend_f]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707736398_3zp5",
+      "name": "Trend Following [gen0_1774707]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707736398_3gsw",
+      "name": "Trend Following [gen0_1774707]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707785598_m9x5",
+      "name": "Trend Following [gen1_1774707]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_trend_following_1774707736398",
+        "gen0_1774707736398_3gsw"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707785598_ufln",
+      "name": "Trend Following [gen1_1774707]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "gen0_1774707736398_3gsw",
+        "gen1_1774707772569_fdnn"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_breakout_1774707808998",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_breakout_mutated_1774707808998",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707808998_r7n3",
+      "name": "Breakout [gen0_1774707]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707808998_mcrq",
+      "name": "Breakout [gen0_1774707]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707836912_0c3c",
+      "name": "Breakout [gen1_1774707]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_breakout_mutated_1774707808998",
+        "gen1_1774707828434_o0vk"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707836912_5hid",
+      "name": "Breakout [gen1_1774707]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_breakout_1774707808998",
+        "gen1_1774707828434_o0vk"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_evolved_trend_1774707857529",
+      "name": "Evolved Trend [seed_evolved]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_evolved_trend_mutated_1774707857529",
+      "name": "Evolved Trend [seed_evolved]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707857529_35zw",
+      "name": "Evolved Trend [gen0_1774707]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen0_1774707857529_dfq3",
+      "name": "Evolved Trend [gen0_1774707]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen2_1774707884863_74fs",
+      "name": "Evolved Trend [gen2_1774707]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 2,
+      "parents": [
+        "gen1_1774707875969_yipu",
+        "seed_evolved_trend_mutated_1774707857529"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "gen1_1774707884863_qh59",
+      "name": "Evolved Trend [gen1_1774707]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 36,
+      "sharpeRatio": 0,
+      "maxDrawdown": 0,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": 0,
+      "generation": 1,
+      "parents": [
+        "seed_evolved_trend_mutated_1774707857529",
+        "gen1_1774707875969_xkbk"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 36,
+          "timestamp": 1774707895853
+        }
+      ],
+      "createdAt": 1774707895853,
+      "updatedAt": 1774707895853
+    },
+    {
+      "strategyId": "seed_mean_reversion_mutated_1774708736473",
+      "name": "Mean Reversion [seed_mean_re]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 35.31,
+      "sharpeRatio": -1.96,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6,
+      "profitFactor": 0.42,
+      "totalReturn": -17.593463513544922,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 35.31,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen0_1774708736473_413n",
+      "name": "Mean Reversion [gen0_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 35.31,
+      "sharpeRatio": -2.05,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6,
+      "profitFactor": 0.41,
+      "totalReturn": -18.187767371905604,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 35.31,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen1_1774708759098_trjn",
+      "name": "Mean Reversion [gen1_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 35.31,
+      "sharpeRatio": -2.05,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6,
+      "profitFactor": 0.41,
+      "totalReturn": -18.187767371905604,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708736473_413n",
+        "gen0_1774708736473_413n"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 35.31,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen1_1774708759098_ypne",
+      "name": "Mean Reversion [gen1_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 35.31,
+      "sharpeRatio": -1.96,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6,
+      "profitFactor": 0.42,
+      "totalReturn": -17.593463513544922,
+      "generation": 1,
+      "parents": [
+        "seed_mean_reversion_mutated_1774708736473",
+        "gen0_1774708736473_413n"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 35.31,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen3_1774708813751_u6fy",
+      "name": "Mean Reversion [gen3_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 35.31,
+      "sharpeRatio": -2.05,
+      "maxDrawdown": 29.84,
+      "winRate": 0.6,
+      "profitFactor": 0.41,
+      "totalReturn": -18.187767371905604,
+      "generation": 3,
+      "parents": [
+        "gen2_1774708798746_vkg0",
+        "gen0_1774708736473_413n"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 3,
+          "fitness": 35.31,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen0_1774708024633_4nyv",
+      "name": "Momentum [gen0_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 34.29,
+      "sharpeRatio": -2.79,
+      "maxDrawdown": 19.71,
+      "winRate": 0.38461538461538464,
+      "profitFactor": 0.17,
+      "totalReturn": -18.88263419748625,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 34.29,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708038139_otud",
+      "name": "Momentum [gen1_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 34.29,
+      "sharpeRatio": -2.79,
+      "maxDrawdown": 19.71,
+      "winRate": 0.38461538461538464,
+      "profitFactor": 0.17,
+      "totalReturn": -18.88263419748625,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708024633_4nyv",
+        "gen0_1774708024633_4nyv"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 34.29,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774708024633_smqw",
+      "name": "Momentum [gen0_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 33.91,
+      "sharpeRatio": -1.99,
+      "maxDrawdown": 20.65,
+      "winRate": 0.38461538461538464,
+      "profitFactor": 0.5,
+      "totalReturn": -13.399722785194006,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 33.91,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708043351_6m7x",
+      "name": "Momentum [gen1_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 33.91,
+      "sharpeRatio": -1.99,
+      "maxDrawdown": 20.65,
+      "winRate": 0.38461538461538464,
+      "profitFactor": 0.5,
+      "totalReturn": -13.399722785194006,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708024633_smqw",
+        "gen0_1774708024633_1x1i"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 33.91,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774708235904_6j4x",
+      "name": "Evolved Trend [gen0_1774708]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.26,
+      "sharpeRatio": -1.31,
+      "maxDrawdown": 9.34,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -5.737037244775984,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.26,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708246066_6eka",
+      "name": "Evolved Trend [gen1_1774708]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.26,
+      "sharpeRatio": -1.31,
+      "maxDrawdown": 9.34,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -5.737037244775984,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708235904_6j4x",
+        "gen0_1774708235904_6j4x"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 32.26,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708246066_dra5",
+      "name": "Evolved Trend [gen1_1774708]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.26,
+      "sharpeRatio": -1.31,
+      "maxDrawdown": 9.34,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -5.737037244775984,
+      "generation": 1,
+      "parents": [
+        "seed_evolved_trend_1774708235904",
+        "gen0_1774708235904_6j4x"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 32.26,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708249507_z437",
+      "name": "Evolved Trend [gen1_1774708]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.26,
+      "sharpeRatio": -0.49,
+      "maxDrawdown": 9.34,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -2.8334154694285827,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708235904_6j4x",
+        "gen0_1774708235904_aa5x"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 32.26,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708249507_iokx",
+      "name": "Evolved Trend [gen1_1774708]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.26,
+      "sharpeRatio": -0.44,
+      "maxDrawdown": 9.34,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -2.628899381696101,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708235904_aa5x",
+        "gen1_1774708246066_dra5"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 32.26,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774708235904_aa5x",
+      "name": "Evolved Trend [gen0_1774708]",
+      "strategyType": "evolved_trend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.24,
+      "sharpeRatio": -1.04,
+      "maxDrawdown": 9.4,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -5.373503922650926,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.24,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "seed_ichimoku_1774708013504",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.14,
+          "timestamp": 1774708260807
+        }
+      ],
+      "createdAt": 1774708260807,
+      "updatedAt": 1774708260807
+    },
+    {
+      "strategyId": "seed_ichimoku_mutated_1774708013504",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.14,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774708013504_5qi1",
+      "name": "Ichimoku Cloud [gen0_1774708]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.14,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774708013504_vhp2",
+      "name": "Ichimoku Cloud [gen0_1774708]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.14,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708020958_ccsn",
+      "name": "Ichimoku Cloud [gen1_1774708]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 1,
+      "parents": [
+        "seed_ichimoku_mutated_1774708013504",
+        "gen0_1774708013504_5qi1"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 32.14,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708020958_mfr7",
+      "name": "Ichimoku Cloud [gen1_1774708]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708013504_vhp2",
+        "gen0_1774708013504_5qi1"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 32.14,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "seed_ichimoku_1774708603626",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.14,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "seed_ichimoku_mutated_1774708603626",
+      "name": "Ichimoku Cloud [seed_ichimok]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.14,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "gen0_1774708603626_yoa8",
+      "name": "Ichimoku Cloud [gen0_1774708]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.14,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "gen0_1774708603626_h3gy",
+      "name": "Ichimoku Cloud [gen0_1774708]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 32.14,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "gen1_1774708654410_wevm",
+      "name": "Ichimoku Cloud [gen1_1774708]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 1,
+      "parents": [
+        "seed_ichimoku_1774708603626",
+        "seed_ichimoku_1774708603626"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 32.14,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "gen1_1774708654410_c1nh",
+      "name": "Ichimoku Cloud [gen1_1774708]",
+      "strategyType": "ichimoku",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.14,
+      "sharpeRatio": -3.19,
+      "maxDrawdown": 17.15,
+      "winRate": 0.1,
+      "profitFactor": 0.14,
+      "totalReturn": -16.33048381058419,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708603626_yoa8",
+        "seed_ichimoku_1774708603626"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 32.14,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "gen2_1774708813751_9bg0",
+      "name": "Mean Reversion [gen2_1774708]",
+      "strategyType": "mean_reversion",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 32.04,
+      "sharpeRatio": -1.86,
+      "maxDrawdown": 28.65,
+      "winRate": 0.5,
+      "profitFactor": 0.43,
+      "totalReturn": -16.78164821560147,
+      "generation": 2,
+      "parents": [
+        "gen1_1774708759098_ypne",
+        "gen0_1774708736473_413n"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 32.04,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen0_1774708024633_1x1i",
+      "name": "Momentum [gen0_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 31.6,
+      "sharpeRatio": -3.45,
+      "maxDrawdown": 18.49,
+      "winRate": 0.1111111111111111,
+      "profitFactor": 0.06,
+      "totalReturn": -18.31660862868981,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 31.6,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774708664378_ff7b",
+      "name": "Momentum [gen0_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 31.6,
+      "sharpeRatio": -3.45,
+      "maxDrawdown": 18.49,
+      "winRate": 0.1111111111111111,
+      "profitFactor": 0.06,
+      "totalReturn": -18.31660862868981,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 31.6,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen1_1774708700247_jz52",
+      "name": "Momentum [gen1_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 31.6,
+      "sharpeRatio": -3.45,
+      "maxDrawdown": 18.49,
+      "winRate": 0.1111111111111111,
+      "profitFactor": 0.06,
+      "totalReturn": -18.31660862868981,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708664378_ff7b",
+        "gen0_1774708664378_ff7b"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 31.6,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen1_1774708700247_efdj",
+      "name": "Momentum [gen1_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 31.6,
+      "sharpeRatio": -3.45,
+      "maxDrawdown": 18.49,
+      "winRate": 0.1111111111111111,
+      "profitFactor": 0.06,
+      "totalReturn": -18.31660862868981,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708664378_r7it",
+        "gen0_1774708664378_ff7b"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 31.6,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen1_1774708705812_180i",
+      "name": "Momentum [gen1_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 31.6,
+      "sharpeRatio": -3.45,
+      "maxDrawdown": 18.49,
+      "winRate": 0.1111111111111111,
+      "profitFactor": 0.06,
+      "totalReturn": -18.31660862868981,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708664378_ff7b",
+        "gen0_1774708664378_r7it"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 31.6,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen2_1774708717031_22kq",
+      "name": "Momentum [gen2_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 31.6,
+      "sharpeRatio": -3.45,
+      "maxDrawdown": 18.49,
+      "winRate": 0.1111111111111111,
+      "profitFactor": 0.06,
+      "totalReturn": -18.31660862868981,
+      "generation": 2,
+      "parents": [
+        "gen1_1774708705812_180i",
+        "gen3_1774708711414_f9h9"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 31.6,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen4_1774708717031_e48v",
+      "name": "Momentum [gen4_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 31.6,
+      "sharpeRatio": -3.45,
+      "maxDrawdown": 18.49,
+      "winRate": 0.1111111111111111,
+      "profitFactor": 0.06,
+      "totalReturn": -18.31660862868981,
+      "generation": 4,
+      "parents": [
+        "gen3_1774708711414_7th2",
+        "gen1_1774708705812_180i"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 4,
+          "fitness": 31.6,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen1_1774708136054_ercp",
+      "name": "Trend Following [gen1_1774708]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 28.09,
+      "sharpeRatio": -3.9,
+      "maxDrawdown": 27.27,
+      "winRate": 0.06666666666666667,
+      "profitFactor": 0.05,
+      "totalReturn": -27.269329670528712,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708092503_e0gp",
+        "gen0_1774708092503_m7ef"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 28.09,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen2_1774708152727_ashu",
+      "name": "Trend Following [gen2_1774708]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.92,
+      "sharpeRatio": -3.98,
+      "maxDrawdown": 27.69,
+      "winRate": 0.06666666666666667,
+      "profitFactor": 0.04,
+      "totalReturn": -27.68652191665495,
+      "generation": 2,
+      "parents": [
+        "gen1_1774708136054_ercp",
+        "gen1_1774708136054_ercp"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 27.92,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774707980630_8765",
+      "name": "SuperTrend [gen0_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.8,
+      "sharpeRatio": -4.47,
+      "maxDrawdown": 35.04,
+      "winRate": 0.375,
+      "profitFactor": 0.06,
+      "totalReturn": -35.041983766148064,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 27.8,
+          "timestamp": 1774708260807
+        }
+      ],
+      "createdAt": 1774708260807,
+      "updatedAt": 1774708260807
+    },
+    {
+      "strategyId": "gen0_1774708854881_2wft",
+      "name": "Trend Following [gen0_1774708]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.77,
+      "sharpeRatio": -4.06,
+      "maxDrawdown": 28.08,
+      "winRate": 0.125,
+      "profitFactor": 0.11,
+      "totalReturn": -28.082092191935224,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 27.77,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen0_1774708854881_y8m0",
+      "name": "Trend Following [gen0_1774708]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.5,
+      "sharpeRatio": -3.36,
+      "maxDrawdown": 28.76,
+      "winRate": 0.125,
+      "profitFactor": 0.19,
+      "totalReturn": -28.30440211456271,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 27.5,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen1_1774708953335_ctn9",
+      "name": "Trend Following [gen1_1774708]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.5,
+      "sharpeRatio": -3.36,
+      "maxDrawdown": 28.76,
+      "winRate": 0.125,
+      "profitFactor": 0.19,
+      "totalReturn": -28.30440211456271,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708854881_y8m0",
+        "gen0_1774708854881_y8m0"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 27.5,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen2_1774708989022_mqwf",
+      "name": "Trend Following [gen2_1774708]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.5,
+      "sharpeRatio": -3.36,
+      "maxDrawdown": 28.76,
+      "winRate": 0.125,
+      "profitFactor": 0.19,
+      "totalReturn": -28.30440211456271,
+      "generation": 2,
+      "parents": [
+        "gen1_1774708953335_ctn9",
+        "gen0_1774708854881_y8m0"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 27.5,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen0_1774708092503_m7ef",
+      "name": "Trend Following [gen0_1774708]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.28,
+      "sharpeRatio": -4.25,
+      "maxDrawdown": 29.29,
+      "winRate": 0.0625,
+      "profitFactor": 0.03,
+      "totalReturn": -29.285300645625696,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 27.28,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708136054_zry6",
+      "name": "Trend Following [gen1_1774708]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.28,
+      "sharpeRatio": -4.25,
+      "maxDrawdown": 29.29,
+      "winRate": 0.0625,
+      "profitFactor": 0.03,
+      "totalReturn": -29.285300645625696,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708092503_m7ef",
+        "gen0_1774708092503_t8bm"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 27.28,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen2_1774708152727_gfab",
+      "name": "Trend Following [gen2_1774708]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.28,
+      "sharpeRatio": -4.25,
+      "maxDrawdown": 29.29,
+      "winRate": 0.0625,
+      "profitFactor": 0.03,
+      "totalReturn": -29.285300645625696,
+      "generation": 2,
+      "parents": [
+        "gen1_1774708136054_zry6",
+        "gen0_1774708092503_m7ef"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 27.28,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen2_1774709090819_vh8e",
+      "name": "Trend Following [gen2_1774709]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.21,
+      "sharpeRatio": -3.45,
+      "maxDrawdown": 29.47,
+      "winRate": 0.125,
+      "profitFactor": 0.19,
+      "totalReturn": -28.81703518554792,
+      "generation": 2,
+      "parents": [
+        "gen1_1774709056499_m1b7",
+        "gen2_1774708989022_mqwf"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 27.21,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "seed_trend_following_1774708092503",
+      "name": "Trend Following [seed_trend_f]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 27.17,
+      "sharpeRatio": -4.29,
+      "maxDrawdown": 29.57,
+      "winRate": 0.125,
+      "profitFactor": 0.1,
+      "totalReturn": -29.568440338739904,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 27.17,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774709090819_8vye",
+      "name": "Trend Following [gen1_1774709]",
+      "strategyType": "trend_following",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 26.37,
+      "sharpeRatio": -4.66,
+      "maxDrawdown": 31.58,
+      "winRate": 0.11764705882352941,
+      "profitFactor": 0.08,
+      "totalReturn": -31.578231000815638,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708854881_2wft",
+        "gen1_1774708953335_ctn9"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 26.37,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "seed_breakout_1774708199199",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 25.93,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "seed_breakout_mutated_1774708199199",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 25.93,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774708199199_ywvo",
+      "name": "Breakout [gen0_1774708]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 25.93,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen0_1774708199199_9z45",
+      "name": "Breakout [gen0_1774708]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 25.93,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen2_1774708223930_e48a",
+      "name": "Breakout [gen2_1774708]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 2,
+      "parents": [
+        "gen1_1774708218099_w5t5",
+        "gen1_1774708218099_w5t5"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 25.93,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "gen1_1774708223930_o2yy",
+      "name": "Breakout [gen1_1774708]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708199199_9z45",
+        "gen0_1774708199199_9z45"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 25.93,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    },
+    {
+      "strategyId": "seed_breakout_1774709196675",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 25.93,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "seed_breakout_mutated_1774709196675",
+      "name": "Breakout [seed_breakou]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 25.93,
+          "timestamp": 1774709458547
+        }
+      ],
+      "createdAt": 1774709458547,
+      "updatedAt": 1774709458547
+    },
+    {
+      "strategyId": "gen0_1774709196675_4a3t",
+      "name": "Breakout [gen0_1774709]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 25.93,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen0_1774709196675_glri",
+      "name": "Breakout [gen0_1774709]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 25.93,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen1_1774709317841_ca5m",
+      "name": "Breakout [gen1_1774709]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 1,
+      "parents": [
+        "seed_breakout_1774709196675",
+        "gen1_1774709302596_knv8"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 25.93,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen1_1774709317841_rau0",
+      "name": "Breakout [gen1_1774709]",
+      "strategyType": "breakout",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.93,
+      "sharpeRatio": -4.03,
+      "maxDrawdown": 25.17,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -25.165419852842042,
+      "generation": 1,
+      "parents": [
+        "gen0_1774709196675_4a3t",
+        "gen0_1774709196675_glri"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 25.93,
+          "timestamp": 1774709458548
+        }
+      ],
+      "createdAt": 1774709458548,
+      "updatedAt": 1774709458548
+    },
+    {
+      "strategyId": "gen0_1774708500861_643q",
+      "name": "SuperTrend [gen0_1774708]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.56,
+      "sharpeRatio": -4.39,
+      "maxDrawdown": 33.61,
+      "winRate": 0.18181818181818182,
+      "profitFactor": 0.1,
+      "totalReturn": -33.61142359766332,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 25.56,
+          "timestamp": 1774709458545
+        }
+      ],
+      "createdAt": 1774709458545,
+      "updatedAt": 1774709458545
+    },
+    {
+      "strategyId": "gen1_1774708517818_1mkx",
+      "name": "SuperTrend [gen1_1774708]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.56,
+      "sharpeRatio": -4.39,
+      "maxDrawdown": 33.61,
+      "winRate": 0.18181818181818182,
+      "profitFactor": 0.1,
+      "totalReturn": -33.61142359766332,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708500861_643q",
+        "gen0_1774708500861_643q"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 25.56,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "gen1_1774708517818_nfh9",
+      "name": "SuperTrend [gen1_1774708]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.56,
+      "sharpeRatio": -4.39,
+      "maxDrawdown": 33.61,
+      "winRate": 0.18181818181818182,
+      "profitFactor": 0.1,
+      "totalReturn": -33.61142359766332,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708500861_643q",
+        "gen0_1774708500861_zxi9"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 25.56,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "gen1_1774708524591_bojt",
+      "name": "SuperTrend [gen1_1774708]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.56,
+      "sharpeRatio": -4.39,
+      "maxDrawdown": 33.61,
+      "winRate": 0.18181818181818182,
+      "profitFactor": 0.1,
+      "totalReturn": -33.61142359766332,
+      "generation": 1,
+      "parents": [
+        "gen0_1774708500861_643q",
+        "gen1_1774708517818_1mkx"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 25.56,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "gen3_1774708545382_qudg",
+      "name": "SuperTrend [gen3_1774708]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.56,
+      "sharpeRatio": -4.39,
+      "maxDrawdown": 33.61,
+      "winRate": 0.18181818181818182,
+      "profitFactor": 0.1,
+      "totalReturn": -33.61142359766332,
+      "generation": 3,
+      "parents": [
+        "gen2_1774708538098_fkhj",
+        "gen0_1774708500861_643q"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 3,
+          "fitness": 25.56,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "gen3_1774708545382_sraz",
+      "name": "SuperTrend [gen3_1774708]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 25.56,
+      "sharpeRatio": -4.39,
+      "maxDrawdown": 33.61,
+      "winRate": 0.18181818181818182,
+      "profitFactor": 0.1,
+      "totalReturn": -33.61142359766332,
+      "generation": 3,
+      "parents": [
+        "gen2_1774708538098_fkhj",
+        "gen1_1774708517818_1mkx"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 3,
+          "fitness": 25.56,
+          "timestamp": 1774709458546
+        }
+      ],
+      "createdAt": 1774709458546,
+      "updatedAt": 1774709458546
+    },
+    {
+      "strategyId": "seed_supertrend_1774707980630",
+      "name": "SuperTrend [seed_supertr]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 22.87,
+      "sharpeRatio": -3.09,
+      "maxDrawdown": 32.83,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -29.1466601174932,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 22.87,
+          "timestamp": 1774708260807
+        }
+      ],
+      "createdAt": 1774708260807,
+      "updatedAt": 1774708260807
+    },
+    {
+      "strategyId": "seed_supertrend_mutated_1774707980630",
+      "name": "SuperTrend [seed_supertr]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 22.87,
+      "sharpeRatio": -3.09,
+      "maxDrawdown": 32.83,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -29.1466601174932,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 22.87,
+          "timestamp": 1774708260807
+        }
+      ],
+      "createdAt": 1774708260807,
+      "updatedAt": 1774708260807
+    },
+    {
+      "strategyId": "gen0_1774707980630_0ucf",
+      "name": "SuperTrend [gen0_1774707]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 22.87,
+      "sharpeRatio": -3.09,
+      "maxDrawdown": 32.83,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -29.1466601174932,
+      "generation": 0,
+      "parents": [],
+      "fitnessHistory": [
+        {
+          "generation": 0,
+          "fitness": 22.87,
+          "timestamp": 1774708260807
+        }
+      ],
+      "createdAt": 1774708260807,
+      "updatedAt": 1774708260807
+    },
+    {
+      "strategyId": "gen1_1774708002052_cwc2",
+      "name": "SuperTrend [gen1_1774708]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 22.87,
+      "sharpeRatio": -3.09,
+      "maxDrawdown": 32.83,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -29.1466601174932,
+      "generation": 1,
+      "parents": [
+        "seed_supertrend_mutated_1774707980630",
+        "gen0_1774707980630_8765"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 22.87,
+          "timestamp": 1774708260807
+        }
+      ],
+      "createdAt": 1774708260807,
+      "updatedAt": 1774708260807
+    },
+    {
+      "strategyId": "gen1_1774708002052_hid9",
+      "name": "SuperTrend [gen1_1774708]",
+      "strategyType": "supertrend",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 22.87,
+      "sharpeRatio": -3.09,
+      "maxDrawdown": 32.83,
+      "winRate": 0,
+      "profitFactor": 0,
+      "totalReturn": -29.1466601174932,
+      "generation": 1,
+      "parents": [
+        "seed_supertrend_1774707980630",
+        "seed_supertrend_1774707980630"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 1,
+          "fitness": 22.87,
+          "timestamp": 1774708260807
+        }
+      ],
+      "createdAt": 1774708260807,
+      "updatedAt": 1774708260807
+    },
+    {
+      "strategyId": "gen2_1774708043351_5odr",
+      "name": "Momentum [gen2_1774708]",
+      "strategyType": "momentum",
+      "source": "evolved",
+      "status": "ranked",
+      "tier": "F",
+      "fitnessScore": 18.76,
+      "sharpeRatio": -1.26,
+      "maxDrawdown": 13.11,
+      "winRate": 0.3,
+      "profitFactor": 0.38,
+      "totalReturn": -8.314650056088958,
+      "generation": 2,
+      "parents": [
+        "gen1_1774708038139_otud",
+        "gen0_1774708024633_4nyv"
+      ],
+      "fitnessHistory": [
+        {
+          "generation": 2,
+          "fitness": 18.76,
+          "timestamp": 1774708260808
+        }
+      ],
+      "createdAt": 1774708260808,
+      "updatedAt": 1774708260808
+    }
+  ],
+  "totalDiscovered": 0,
+  "totalBacktested": 196,
+  "totalDeployed": 0,
+  "totalRetired": 0,
+  "generationsRun": 0,
+  "bestFitnessEver": 57.24
+}
