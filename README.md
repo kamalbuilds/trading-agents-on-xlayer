@@ -1,6 +1,6 @@
-# Trading Agents on X Layer
+        # AgenticTradeX - Trading Agents on X Layer
 
-AI-powered multi-agent trading system built on OKX X Layer. Autonomous agents collaborate to analyze markets, generate trade signals, assess risk, and execute trades on-chain through X Layer DEX.
+        AI-powered multi-agent trading system built on OKX X Layer. Autonomous agents collaborate to analyze markets, generate trade signals, assess risk, and execute trades on-chain through X Layer DEX.
 
 ## Architecture
 
