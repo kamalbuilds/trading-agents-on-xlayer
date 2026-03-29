@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Trading Agent",
+  title: "RWA Agent - AI-Powered RWA Portfolio Management on BNB Chain",
   description:
-    "Autonomous AI-powered trading agent with real-time portfolio management",
+    "5 autonomous AI agents for Real World Asset portfolio management. Research, risk, compliance, trading, and optimization on BNB Chain.",
 };
 
 export default function RootLayout({
